@@ -1,7 +1,7 @@
 // app/login/page.jsx
 "use client";
 
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";

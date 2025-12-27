@@ -1,7 +1,7 @@
 // app/home/About.jsx
 "use client";
 
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";

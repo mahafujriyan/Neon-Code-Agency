@@ -1,7 +1,7 @@
 // app/home/Hero.jsx
 "use client";
 
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 // useRef ইম্পোর্ট করতে ভুলবেন না

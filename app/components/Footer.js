@@ -1,7 +1,7 @@
 // components/Footer.jsx
 "use client";
 
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import Link from "next/link";
 import Image from "next/image"; // Image ইম্পোর্ট করা হলো
 import { motion } from "framer-motion";

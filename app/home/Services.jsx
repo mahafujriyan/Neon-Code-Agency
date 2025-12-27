@@ -1,7 +1,7 @@
 // app/home/Services.jsx
 "use client";
 
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import React, { useRef } from "react";
 import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
