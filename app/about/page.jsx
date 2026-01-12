@@ -1,9 +1,11 @@
 // app/about/page.jsx
 "use client";
 
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 
 export default function About() {
   const { t } = useLanguage();
@@ -32,7 +34,7 @@ export default function About() {
             {t.nav.about}
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Neon Studio</span>
+            We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Neon Code</span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             {t.about.desc}

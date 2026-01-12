@@ -1,12 +1,12 @@
 import { Poppins, Hind_Siliguri } from "next/font/google"; 
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import { LanguageProvider } from "../context/LanguageContext";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 // ১. দুটো লোডার ইম্পোর্ট করুন
-import Preloader from "./components/Preloader";   // প্রথমবার লোড হওয়ার জন্য
-import PageLoader from "./components/PageLoader"; // এক পেজ থেকে অন্য পেজে যাওয়ার জন্য
+import Preloader from "@/components/Preloader";   // প্রথমবার লোড হওয়ার জন্য
+import PageLoader from "@/components/PageLoader"; // এক পেজ থেকে অন্য পেজে যাওয়ার জন্য
 
 const poppins = Poppins({ 
   subsets: ["latin"], 

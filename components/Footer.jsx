@@ -1,12 +1,13 @@
-// components/Footer.jsx
+
 "use client";
 
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
-import Image from "next/image"; // Image ইম্পোর্ট করা হলো
-import { motion } from "framer-motion";
+import Image from "next/image";
+
 
 export default function Footer() {
+
   const { t } = useLanguage();
 
   if (!t) return null;
@@ -40,7 +41,7 @@ export default function Footer() {
                 className="rounded-lg object-contain" // কিছুটা রাউন্ডেড করা হয়েছে
               />
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                NeonStudio
+                NeonCode
               </span>
             </Link>
 

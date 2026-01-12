@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2017",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -30,7 +34,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/about/page.jsx", "app/signup/page.jsx", "app/layout.jsx", "app/page.js", "app/portfolio/page.jsx", "app/login/page.jsx", "app/blog/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -256,7 +256,7 @@ export const translations = {
       tag: "JOIN OUR TEAM",
       title: "Build the Future With Us",
       desc: "We are looking for passionate individuals to join our growing team. If you love innovation and creativity, this is the place for you.",
-      benefits_title: "Why Join NeonStudio?",
+      benefits_title: "Why Join NeonCode?",
       benefits: [
         { title: "Remote Work", desc: "Work from anywhere in the world." },
         { title: "Flexible Hours", desc: "We value output over hours." },

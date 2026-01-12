@@ -1,13 +1,15 @@
-// app/login/page.jsx
+// app/signup/page.jsx
 "use client";
 
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
-export default function Login() {
+export default function Signup() {
   const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -18,57 +20,69 @@ export default function Login() {
       
       {/* === ১. বাম পাশ: ভিজ্যুয়াল সেকশন (শুধু ডেস্কটপে দেখাবে) === */}
       <div className="hidden lg:flex w-1/2 relative overflow-hidden">
-        {/* ব্যাকগ্রাউন্ড ইমেজ */}
+        {/* ব্যাকগ্রাউন্ড ইমেজ (সাইন আপের জন্য আলাদা) */}
         <Image 
-          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
-          alt="Login Background"
+          src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop"
+          alt="Signup Background"
           fill
           className="object-cover"
         />
         
-        {/* কালার ওভারলে */}
-        <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
+        {/* কালার ওভারলে (পার্পল টোন) */}
+        <div className="absolute inset-0 bg-purple-900/40 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
 
-        {/* টেক্সট কন্টেন্ট (ইমেজের ওপর) */}
+        {/* টেক্সট কন্টেন্ট */}
         <div className="absolute bottom-20 left-20 z-10 max-w-md">
-          <h2 className="text-4xl font-bold mb-4">Building the Future of Digital Experience.</h2>
-          <p className="text-gray-300">Join NeonStudio and transform your brand with our innovative solutions.</p>
+          <h2 className="text-4xl font-bold mb-4">Start Your Journey With Us.</h2>
+          <p className="text-gray-300">Create an account and unlock endless possibilities with NeonStudio.</p>
         </div>
       </div>
 
 
-      {/* === ২. ডান পাশ: লগইন ফর্ম === */}
+      {/* === ২. ডান পাশ: সাইন আপ ফর্ম === */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative">
         
         {/* ব্যাকগ্রাউন্ড গ্লো */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="w-full max-w-md space-y-8 relative z-10"
         >
           
           {/* হেডার */}
           <div className="text-center">
-            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
-              {t.auth.login_title}
+            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-2">
+              {t.auth.signup_title}
             </h1>
-            <p className="text-gray-400">{t.auth.login_desc}</p>
+            <p className="text-gray-400">{t.auth.signup_desc}</p>
           </div>
 
           {/* ফর্ম */}
-          <form className="space-y-6">
+          <form className="space-y-5">
             
+            {/* নাম */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-300 ml-1">
+                {t.auth.full_name} {/* পরিবর্তন করা হয়েছে */}
+              </label>
+              <input 
+                type="text" 
+                placeholder="John Doe"
+                className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-gray-600"
+              />
+            </div>
+
             {/* ইমেইল */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-300 ml-1">{t.auth.email}</label>
               <input 
                 type="email" 
                 placeholder="name@example.com"
-                className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600"
+                className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-gray-600"
               />
             </div>
 
@@ -78,10 +92,9 @@ export default function Login() {
               <div className="relative">
                 <input 
                   type={showPassword ? "text" : "password"} 
-                  placeholder="••••••••"
-                  className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600 pr-12"
+                  placeholder="Create a password"
+                  className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-gray-600 pr-12"
                 />
-                {/* আই আইকন (Show/Hide) */}
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -96,20 +109,9 @@ export default function Login() {
               </div>
             </div>
 
-            {/* রিমেম্বার ও ফরগট */}
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 cursor-pointer group">
-                <input type="checkbox" className="w-4 h-4 rounded border-gray-600 bg-gray-700 text-blue-500 focus:ring-blue-500/50" />
-                <span className="text-gray-400 group-hover:text-white transition-colors">{t.auth.remember}</span>
-              </label>
-              <Link href="#" className="text-blue-400 hover:text-blue-300 font-medium">
-                {t.auth.forgot}
-              </Link>
-            </div>
-
             {/* বাটন */}
-            <button className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 transform hover:-translate-y-1">
-              {t.auth.btn_login}
+            <button className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(147,51,234,0.5)] transition-all duration-300 transform hover:-translate-y-1 mt-4">
+              {t.auth.btn_signup}
             </button>
 
           </form>
@@ -124,7 +126,7 @@ export default function Login() {
             </div>
           </div>
 
-          {/* সোশ্যাল লগইন */}
+          {/* সোশ্যাল সাইন আপ */}
           <div className="grid grid-cols-2 gap-4">
             <button className="flex items-center justify-center gap-3 py-3 border border-white/10 rounded-xl hover:bg-white/5 transition-all text-sm font-semibold">
               <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-5 h-5" alt="Google" />
@@ -136,11 +138,11 @@ export default function Login() {
             </button>
           </div>
 
-          {/* সাইন আপ লিংক */}
+          {/* লগইন লিংক */}
           <p className="text-center text-gray-400 text-sm">
-            {t.auth.no_account}{" "}
-            <Link href="/signup" className="text-blue-400 hover:text-white font-bold transition-colors">
-              {t.auth.signup_link}
+            Already have an account?{" "}
+            <Link href="/login" className="text-purple-400 hover:text-white font-bold transition-colors">
+              {t.auth.btn_login}
             </Link>
           </p>
 

@@ -1,9 +1,10 @@
 // app/career/page.jsx
 "use client";
 
-import { useLanguage } from "../context/LanguageContext";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CareerPage() {
   const { t } = useLanguage();

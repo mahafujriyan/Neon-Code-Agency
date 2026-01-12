@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 // === Scramble Link Component ===
 const ScrambleLink = ({ href, children, onClick }) => {
@@ -85,7 +85,7 @@ const Navbar = () => {
             className="object-contain rounded-lg border border-white/10"
           />
           <span className="text-xl font-bold text-white tracking-wide">
-            NeonStudio
+            NeonCode
           </span>
         </Link>
 
