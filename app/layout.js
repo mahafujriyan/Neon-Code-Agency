@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { LanguageProvider } from "@/context/LanguageContext";
 import React from "react";
 import Preloader from "../components/Preloader";   // প্রথমবার লোড হওয়ার জন্য
-import PageLoader from "../components/PageLoader"; 
+import DynamicPageLoader from "@/components/DynamicPageLoader";
 import Footer from "@/components/Footer";
 
 // ২. Poppins (ইংরেজি) কনফিগারেশন
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
       >
         <LanguageProvider>
           <Preloader /> {/* রিফ্রেশ দিলে কাজ করবে (৩.৫ সেকেন্ড) */}
-          <PageLoader /> {/* লিংকে ক্লিক করলে কাজ করবে (১ সেকেন্ড) */}
+          <DynamicPageLoader /> {/* লিংকে ক্লিক করলে কাজ করবে (১ সেকেন্ড) */}
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />

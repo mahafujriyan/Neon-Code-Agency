@@ -5,8 +5,9 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 // ১. দুটো লোডার ইম্পোর্ট করুন
-import Preloader from "@/components/Preloader";   // প্রথমবার লোড হওয়ার জন্য
-import PageLoader from "@/components/PageLoader"; // এক পেজ থেকে অন্য পেজে যাওয়ার জন্য
+import React from "react";
+import Preloader from "@/components/Preloader";   // প্রথমবার লোড হওয়ার জন্য
+import DynamicPageLoader from "@/components/DynamicPageLoader"; // এক পেজ থেকে অন্য পেজে যাওয়ার জন্য
 
 const poppins = Poppins({ 
   subsets: ["latin"], 
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
           {/* === ২. দুটো লোডার পাশাপাশি বসিয়ে দিন === */}
           
           <Preloader />   {/* রিফ্রেশ দিলে কাজ করবে (৩.৫ সেকেন্ড) */}
-          <PageLoader />  {/* লিংকে ক্লিক করলে কাজ করবে (১ সেকেন্ড) */}
+          <DynamicPageLoader />  {/* লিংকে ক্লিক করলে কাজ করবে (১ সেকেন্ড) */}
 
           <Navbar />
           <main className="flex-grow">
