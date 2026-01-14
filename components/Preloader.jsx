@@ -64,7 +64,7 @@ export default function Preloader() {
           {/* === ২. টেক্সট এবং প্রোগ্রেস বার === */}
           <div className="mt-12 flex flex-col items-center">
             <h2 className="text-2xl font-bold tracking-[0.3em] text-white uppercase animate-pulse">
-              Neon Studio
+              Neon Code
             </h2>
             
             {/* সরু লোডিং লাইন */}

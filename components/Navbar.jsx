@@ -60,12 +60,12 @@ const ScrambleLink = ({ href, children, onClick }) => {
 };
 
 const Navbar = () => {
-  const { t, lang, toggleLanguage } = useLanguage();
+  const { t, lang, toggleLanguage, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false); // Language Dropdown
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Mobile Menu
 
   const handleLanguageChange = (selectedLang) => {
-    if (lang !== selectedLang) toggleLanguage();
+    if (lang !== selectedLang) setLanguage(selectedLang);
     setIsOpen(false);
   };
 

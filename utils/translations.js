@@ -17,10 +17,10 @@ export const translations = {
 
     // --- Hero Section ---
     home: {
-      top_tagline: "CREATE SOMETHING EXTRAORDINARY WITH NEON STUDIO ✨",
+      top_tagline: "CREATE SOMETHING EXTRAORDINARY WITH NEON CODE ✨",
       line1: "BUILD. DESIGN.",
       line2: "THAT'S",
-      line3: "NEON STUDIO",
+      line3: "NEON CODE",
       desc: "We are a creative agency focused on branding, web design, and digital marketing solutions. Let's build something unique together.",
       btn_primary: "Get Started",
       btn_secondary: "View Our Work",
@@ -204,7 +204,7 @@ export const translations = {
          phone: "+1 234 567 890",
          
          email_title: "Email Us",
-         email: "hello@neonstudio.com"
+         email: "hello@neonscode.com"
       },
       form: {
         name: "Your Name",
@@ -228,7 +228,7 @@ export const translations = {
       newsletter_desc: "Subscribe to our newsletter for latest updates and news.",
       placeholder: "Enter your email",
       btn: "Subscribe",
-      copyright: "© 2024 NeonStudio. All rights reserved.",
+      copyright: "© 2024 NeonCode. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service"
     },
@@ -479,7 +479,7 @@ export const translations = {
          phone: "+৮৮০ ১৭১১ ০০০ ০০০",
          
          email_title: "ইমেইল করুন",
-         email: "hello@neonstudio.com"
+         email: "hello@neonscode.com"
       },
       form: {
         name: "আপনার নাম",

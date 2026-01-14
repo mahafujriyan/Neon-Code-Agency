@@ -71,7 +71,7 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold mb-6 text-white">{t.about.title}</h2>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Founded in 2024, Neon Studio started with a simple mission: to help brands shine in the digital world. We combine creativity with technology to build websites and apps that not only look good but also perform exceptionally.
+              Founded in 2024, Neon Code started with a simple mission: to help brands shine in the digital world. We combine creativity with technology to build websites and apps that not only look good but also perform exceptionally.
             </p>
             <p className="text-gray-400 leading-relaxed">
               Our team consists of designers, developers, and strategists who are passionate about crafting digital solutions. Whether you are a startup or an established enterprise, we are here to help you grow.

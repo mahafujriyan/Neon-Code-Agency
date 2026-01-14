@@ -37,7 +37,7 @@ export default function Footer() {
                 src="https://i.ibb.co/pjcnbgCd/Neon-Studio-icon.png" // পাবলিক ফোল্ডারের পাথ
                 width={40} 
                 height={40} 
-                alt="NeonStudio Logo" 
+                alt="NeonCode Logo" 
                 className="rounded-lg object-contain" // কিছুটা রাউন্ডেড করা হয়েছে
               />
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">

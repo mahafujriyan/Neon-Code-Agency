@@ -16,15 +16,21 @@ export function LanguageProvider({ children }) {
   const toggleLanguage = () => {
     setLang((prev) => {
       const newLang = prev === "en" ? "bn" : "en";
-      localStorage.setItem("agency-lang", newLang);
+      if (typeof window !== "undefined") localStorage.setItem("agency-lang", newLang);
       return newLang;
     });
+  };
+
+  const setLanguage = (newLang) => {
+    if (!newLang) return;
+    if (typeof window !== "undefined") localStorage.setItem("agency-lang", newLang);
+    setLang(newLang);
   };
 
   const t = translations[lang] || translations["en"];
 
   return (
-    <LanguageContext.Provider value={{ lang, t, toggleLanguage }}>
+    <LanguageContext.Provider value={{ lang, t, toggleLanguage, setLanguage }}>
       <div className={lang === 'en' ? 'font-en' : 'font-bn'}>
         {children}
       </div>

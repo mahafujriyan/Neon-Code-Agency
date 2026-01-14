@@ -21,7 +21,7 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata = {
-  title: "NeonStudio Agency",
+  title: "NeonCode Agency",
   description: "Digital Solutions",
 };
 
