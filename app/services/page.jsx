@@ -1,5 +1,5 @@
-// app/services/page.jsx
 "use client";
+// app/services/page.jsx
 
 import { useLanguage } from "@/context/LanguageContext";
 

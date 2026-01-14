@@ -7,7 +7,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/context/LanguageContext";
 
 export default function Signup() {
   const { t } = useLanguage();

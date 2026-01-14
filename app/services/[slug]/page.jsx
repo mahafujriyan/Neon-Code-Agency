@@ -1,11 +1,10 @@
-// app/services/[slug]/page.jsx
 "use client";
+// app/services/[slug]/page.jsx
 
 import { useLanguage } from "@/context/LanguageContext";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/context/LanguageContext";
 
 
 export default function ServiceDetail() {
@@ -33,7 +32,7 @@ export default function ServiceDetail() {
         <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">
           Service Details
         </span>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-purple-500">
           {serviceInfo.title}
         </h1>
         <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
