@@ -85,14 +85,71 @@ export default function Services() {
   if (!t) return null;
 
   // সার্ভিস ডাটা
-  const servicesData = [
-    { title: t.services.items.s1_title, desc: t.services.items.s1_desc, img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto=format&fit=crop", hoverColor: "from-[#FFD700]", icon: "/servicesImg/branding1.png" },
-    { title: t.services.items.s2_title, desc: t.services.items.s2_desc, img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472&auto=format&fit=crop", hoverColor: "from-[#00D4FF]", icon: "/servicesImg/coding2.png" },
-    { title: t.services.items.s3_title, desc: t.services.items.s3_desc, img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop", hoverColor: "from-[#FF4D4D]", icon: "/servicesImg/advertisig-agency3.png" },
-    { title: t.services.items.s4_title, desc: t.services.items.s4_desc, img: "/servicesImg/uiux.jpg", hoverColor: "from-[#A020F0]", icon: "/servicesImg/ux4.png" },
-    { title: t.services.items.s5_title, desc: t.services.items.s5_desc, img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1470&auto=format&fit=crop", hoverColor: "from-[#00FF7F]", icon: "/servicesImg/usability5.png" },
-    { title: t.services.items.s6_title, desc: t.services.items.s6_desc, img: "https://images.unsplash.com/photo-1572177812156-58036aae439c?q=80&w=1470&auto=format&fit=crop", hoverColor: "from-[#FF8C00]", icon: "/servicesImg/seo6.png" },
-  ];
+const servicesData = [
+  {
+    title: t.services.items.s1_title,
+    desc: t.services.items.s1_desc,
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto=format&fit=crop",
+    hoverColor: "from-[#FFD700]",
+    icon: "/servicesImg/branding1.png",
+  },
+  {
+    title: t.services.items.s2_title,
+    desc: t.services.items.s2_desc,
+    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1472&auto=format&fit=crop",
+    hoverColor: "from-[#00D4FF]",
+    icon: "/servicesImg/coding2.png",
+  },
+  {
+    title: t.services.items.s3_title,
+    desc: t.services.items.s3_desc,
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop",
+    hoverColor: "from-[#FF4D4D]",
+    icon: "/servicesImg/advertisig-agency3.png",
+  },
+  {
+    title: t.services.items.s4_title,
+    desc: t.services.items.s4_desc,
+    img: "/servicesImg/uiux.jpg",
+    hoverColor: "from-[#A020F0]",
+    icon: "/servicesImg/ux4.png",
+  },
+  {
+    title: t.services.items.s5_title,
+    desc: t.services.items.s5_desc,
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1470&auto=format&fit=crop",
+    hoverColor: "from-[#00FF7F]",
+    icon: "/servicesImg/usability5.png",
+  },
+  {
+    title: t.services.items.s6_title,
+    desc: t.services.items.s6_desc,
+    img: "https://images.unsplash.com/photo-1572177812156-58036aae439c?q=80&w=1470&auto=format&fit=crop",
+    hoverColor: "from-[#FF8C00]",
+    icon: "/servicesImg/seo6.png",
+  },
+
+  // ✅ NEW SERVICES (Cards only)
+  {
+    title: t.services.items.s7_title,
+    desc: t.services.items.s7_desc,
+    img: "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1470&auto=format&fit=crop",
+    hoverColor: "from-[#FF69B4]",
+    icon: "/servicesImg/cretive desgine.png",
+  },
+  {
+    title: t.services.items.s8_title,
+    desc: t.services.items.s8_desc,
+    img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1000&auto=format&fit=crop",
+    hoverColor: "from-[#FF69B4]",
+    icon: "/servicesImg/service7.png",
+  },
+   
+  
+  
+ 
+];
+
 
   return (
     <section className="bg-black text-white">
@@ -116,7 +173,7 @@ export default function Services() {
             {/* ১. সেন্ট্রাল লোগো */}
             <div className="absolute z-20 w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.3)]">
               <Image
-                src="https://i.ibb.co/pjcnbgCd/Neon-Studio-icon.png" // আপনার লোগো
+                src="https://i.ibb.co/pjcnbgCd/Neon-Studio-icon.png" // আপনার
                 alt="Center Logo"
                 width={50}
                 height={50}
@@ -131,17 +188,21 @@ export default function Services() {
             <div className="absolute border border-white/10 rounded-full w-[450px] h-[450px]"></div>
 
 
-            {/* --- অরবিটিং আইকনসমূহ --- */}
+          {/* INNER CIRCLE (Core Services) */}
+                    <OrbitingIcon icon={servicesData[0].icon} radius={140} duration={25} angle={0} />
+                    <OrbitingIcon icon={servicesData[1].icon} radius={140} duration={25} angle={120} />
+                    <OrbitingIcon icon={servicesData[2].icon} radius={140} duration={25} angle={240} />
 
-            {/* ইনার সার্কেল (৩টি আইকন) - বাম দিকে ঘুরবে */}
-            <OrbitingIcon icon={servicesData[0].icon} radius={140} duration={25} angle={0} />
-            <OrbitingIcon icon={servicesData[1].icon} radius={140} duration={25} angle={120} />
-            <OrbitingIcon icon={servicesData[2].icon} radius={140} duration={25} angle={240} />
+                    {/* OUTER CIRCLE (Advanced + Creative Services) */}
+                    <OrbitingIcon icon={servicesData[3].icon} radius={225} duration={35} angle={0} reverse />
+                    <OrbitingIcon icon={servicesData[4].icon} radius={225} duration={35} angle={90} reverse />
+                    <OrbitingIcon icon={servicesData[5].icon} radius={225} duration={35} angle={180} reverse />
 
-            {/* আউটার সার্কেল (৩টি আইকন) - ডান দিকে ঘুরবে (Reverse) */}
-            <OrbitingIcon icon={servicesData[3].icon} radius={225} duration={35} angle={60} reverse={true} />
-            <OrbitingIcon icon={servicesData[4].icon} radius={225} duration={35} angle={180} reverse={true} />
-            <OrbitingIcon icon={servicesData[5].icon} radius={225} duration={35} angle={300} reverse={true} />
+                    {/* NEW: Creative Design */}
+                    <OrbitingIcon icon={servicesData[6].icon} radius={225} duration={35} angle={270} reverse />
+
+                    {/* NEW: Professional Page Setup */}
+                    <OrbitingIcon icon={servicesData[7].icon} radius={300} duration={45} angle={45} />
 
             {/* Scroll Down টেক্সট */}
             <p className="absolute bottom-[-60px] text-gray-500 text-sm font-bold tracking-widest uppercase animate-pulse">

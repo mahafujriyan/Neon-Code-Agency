@@ -15,13 +15,59 @@ export default function ServicesPage() {
 
   // সার্ভিস লিস্টের সাথে লিংক (Slug) ম্যাপ করা
   const servicesList = [
-    { slug: "branding", title: t.services.items.s1_title, desc: t.services.items.s1_desc, img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" },
-    { slug: "web-development", title: t.services.items.s2_title, desc: t.services.items.s2_desc, img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop" },
-    { slug: "digital-marketing", title: t.services.items.s3_title, desc: t.services.items.s3_desc, img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" },
-    { slug: "ui-ux-design", title: t.services.items.s4_title, desc: t.services.items.s4_desc, img: "/servicesImg/uiux.jpg" },
-    { slug: "mobile-app", title: t.services.items.s5_title, desc: t.services.items.s5_desc, img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop" },
-    { slug: "seo", title: t.services.items.s6_title, desc: t.services.items.s6_desc, img: "https://images.unsplash.com/photo-1572177812156-58036aae439c?q=80&w=1000&auto=format&fit=crop" },
-  ];
+  {
+    slug: "branding",
+    title: t.services.items.s1_title,
+    desc: t.services.items.s1_desc,
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop",
+  },
+  {
+    slug: "web-development",
+    title: t.services.items.s2_title,
+    desc: t.services.items.s2_desc,
+    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop",
+  },
+  {
+    slug: "digital-marketing",
+    title: t.services.items.s3_title,
+    desc: t.services.items.s3_desc,
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+  },
+  {
+    slug: "ui-ux-design",
+    title: t.services.items.s4_title,
+    desc: t.services.items.s4_desc,
+    img: "/servicesImg/uiux.jpg",
+  },
+  {
+    slug: "mobile-app",
+    title: t.services.items.s5_title,
+    desc: t.services.items.s5_desc,
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop",
+  },
+  {
+    slug: "seo",
+    title: t.services.items.s6_title,
+    desc: t.services.items.s6_desc,
+    img: "https://images.unsplash.com/photo-1572177812156-58036aae439c?q=80&w=1000&auto=format&fit=crop",
+  },
+
+  // ✅ NEW SERVICES
+  {
+    slug: "creative-design",
+    title: t.services.items.s7_title,
+    desc: t.services.items.s7_desc,
+    img: "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1000&auto=format&fit=crop",
+  },
+ 
+  {
+    slug: "professional-page-setup",
+    title: t.services.items.s8_title,
+    desc: t.services.items.s8_desc,
+    img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1000&auto=format&fit=crop",
+  },
+  
+];
 
   return (
     <main className="bg-black text-white min-h-screen pt-24 pb-20">

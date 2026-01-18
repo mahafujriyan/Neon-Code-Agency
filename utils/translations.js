@@ -43,59 +43,103 @@ export const translations = {
     },
 
     // --- Services Section (Main Page) ---
-    services: {
-      tag: "WHAT WE DO",
-      title: "Our Expertise",
-      desc: "Innovative solutions for complex challenges designed to grow your business.",
-      items: {
-        s1_title: "Branding & Identity",
-        s1_desc: "We create memorable brand identities that resonate with your audience and stand out in the market.",
-        s2_title: "Web Development",
-        s2_desc: "Custom, high-performance websites built with modern technologies like Next.js and React.",
-        s3_title: "Digital Marketing",
-        s3_desc: "Data-driven strategies to increase your online visibility, traffic, and conversion rates.",
-        s4_title: "UI/UX Design",
-        s4_desc: "User-centric interfaces that offer seamless and engaging experiences for your customers.",
-        s5_title: "Mobile App Development",
-        s5_desc: "Native and Cross-platform mobile applications for iOS and Android tailored to your needs.",
-        s6_title: "SEO Optimization",
-        s6_desc: "Comprehensive SEO strategies to rank your website at the top of search engine results."
-      }
-    },
+services: {
+  tag: "WHAT WE DO",
+  title: "Our Expertise",
+  desc: "Innovative solutions for complex challenges designed to grow your business.",
+  items: {
+    s1_title: "Branding & Identity",
+    s1_desc: "We create memorable brand identities that resonate with your audience and stand out in the market.",
+
+    s2_title: "Web Development",
+    s2_desc: "Custom, high-performance websites built with modern technologies like Next.js and React.",
+
+    s3_title: "Digital Marketing",
+    s3_desc: "Data-driven strategies to increase your online visibility, traffic, and conversion rates.",
+
+    s4_title: "UI/UX Design",
+    s4_desc: "User-centric interfaces that offer seamless and engaging experiences for your customers.",
+
+    s5_title: "Mobile App Development",
+    s5_desc: "Native and cross-platform mobile applications for iOS and Android tailored to your business needs.",
+
+    s6_title: "SEO Optimization",
+    s6_desc: "Comprehensive SEO strategies to rank your website at the top of search engine results.",
+
+    // ✅ NEW SERVICES (3)
+    s7_title: "Creative Design",
+    s7_desc: "Creative and visually engaging design solutions including banners, social media creatives, ad designs, posters, and marketing materials that enhance your brand identity and audience engagement.",
+
+
+    s9_title: "Professional Page Setup",
+    s9_desc: "Professional setup and optimization of Facebook business pages including branding, profile and cover design, page information setup, call-to-action configuration, and best practices to build credibility and trust."
+  }
+},
+
 
     // --- Service Details (Individual Pages) ---
     service_details: {
-      "branding": {
-        title: "Branding & Identity",
-        full_desc: "A brand is more than just a logo. We build comprehensive brand identities that communicate your values and resonate with your target audience. From logo design to brand guidelines, we cover it all.",
-        features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Rebranding"],
-      },
-      "web-development": {
-        title: "Web Development",
-        full_desc: "We build fast, secure, and scalable websites using the latest technologies like Next.js and React. Our websites are optimized for performance and SEO.",
-        features: ["Custom Websites", "E-commerce", "CMS Development", "API Integration"],
-      },
-      "digital-marketing": {
-        title: "Digital Marketing",
-        full_desc: "Grow your business with our data-driven marketing strategies. We help you reach the right audience at the right time using social media, email, and PPC.",
-        features: ["Social Media Marketing", "PPC Campaigns", "Content Marketing", "Email Marketing"],
-      },
-      "ui-ux-design": {
-        title: "UI/UX Design",
-        full_desc: "We design user interfaces that are not only beautiful but also intuitive. We focus on user experience to ensure high engagement and conversion.",
-        features: ["User Research", "Wireframing", "Prototyping", "Mobile App Design"],
-      },
-      "mobile-app": {
-        title: "Mobile App Development",
-        full_desc: "Turn your ideas into mobile applications. We develop native and cross-platform apps for iOS and Android ensuring smooth performance.",
-        features: ["iOS & Android", "Flutter / React Native", "App Store Optimization", "Maintenance"],
-      },
-      "seo": {
-        title: "SEO Optimization",
-        full_desc: "Improve your website's visibility on search engines. Our SEO experts use white-hat techniques to rank you higher and drive organic traffic.",
-        features: ["Keyword Research", "On-page SEO", "Link Building", "Technical SEO"],
-      }
-    },
+  "branding": {
+    title: "Branding & Identity",
+    full_desc: "A brand is more than just a logo. We build comprehensive brand identities that communicate your values and resonate with your target audience. From logo design to brand guidelines, we cover it all.",
+    features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Rebranding"],
+  },
+
+  "web-development": {
+    title: "Web Development",
+    full_desc: "We build fast, secure, and scalable websites using the latest technologies like Next.js and React. Our websites are optimized for performance and SEO.",
+    features: ["Custom Websites", "E-commerce", "CMS Development", "API Integration"],
+  },
+
+  "digital-marketing": {
+    title: "Digital Marketing",
+    full_desc: "Grow your business with our data-driven marketing strategies. We help you reach the right audience at the right time using social media, email, and PPC.",
+    features: ["Social Media Marketing", "PPC Campaigns", "Content Marketing", "Email Marketing"],
+  },
+
+  "ui-ux-design": {
+    title: "UI/UX Design",
+    full_desc: "We design user interfaces that are not only beautiful but also intuitive. We focus on user experience to ensure high engagement and conversion.",
+    features: ["User Research", "Wireframing", "Prototyping", "Mobile App Design"],
+  },
+
+  "mobile-app": {
+    title: "Mobile App Development",
+    full_desc: "Turn your ideas into mobile applications. We develop native and cross-platform apps for iOS and Android ensuring smooth performance.",
+    features: ["iOS & Android", "Flutter / React Native", "App Store Optimization", "Maintenance"],
+  },
+
+  "seo": {
+    title: "SEO Optimization",
+    full_desc: "Improve your website's visibility on search engines. Our SEO experts use white-hat techniques to rank you higher and drive organic traffic.",
+    features: ["Keyword Research", "On-page SEO", "Link Building", "Technical SEO"],
+  },
+
+  // ✅ NEW SERVICES (3)
+
+  "creative-design": {
+    title: "Creative Design",
+    full_desc: "We deliver creative and visually impactful design solutions that strengthen your brand presence. From marketing creatives to social media designs, we ensure your visuals communicate clearly and attract attention.",
+    features: [
+      "Social Media Creatives",
+      "Banner & Poster Design",
+      "Ad Creative Design",
+      "Marketing Materials"
+    ],
+  },
+
+  "professional-page-setup": {
+    title: "Professional Page Setup",
+    full_desc: "We professionally set up and optimize Facebook business pages to build credibility and trust. From branding to configuration, we ensure your page is ready for growth and advertising.",
+    features: [
+      "Facebook Business Page Setup",
+      "Profile & Cover Design",
+      "Page Information Optimization",
+      "CTA Button & Best Practices Setup"
+    ],
+  }
+},
+
 
     // --- Why Choose Us ---
     why_choose: {
@@ -130,6 +174,114 @@ export const translations = {
       }
     },
 
+    // 
+ recent: {
+  tag: "Our Work",
+  title: "Work Showcase",
+  desc: "We build premium digital experiences tailored to each category.",
+
+  categories: [
+    "All",
+    "Branding",
+    "Web Design",
+    "Web Development",
+    "Page Setup",
+    "Digital Marketing",
+  ],
+
+  projects: [
+    {
+      title: "Neon Brand Identity",
+      category: "Branding",
+      img: "https://images.unsplash.com/photo-1600607686527-6fb886090705",
+    },
+    {
+      title: "Corporate Website",
+      category: "Web Design",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    },
+    {
+      title: "Mobile Banking App",
+      category: "App Development",
+      img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c",
+    },
+    {
+      title: "Business Page Setup",
+      category: "Page Setup",
+      img: "https://images.unsplash.com/photo-1559028012-481c04fa702d",
+    },
+    {
+      title: "Social Media Campaign",
+      category: "Digital Marketing",
+      img: "https://images.unsplash.com/photo-1533750516457-a7f992034fec",
+    },
+  ],
+
+  details: {
+    branding: {
+      title_en: "Branding & Identity",
+      title_bn: "ব্র্যান্ডিং ও আইডেন্টিটি",
+      desc:
+        "We create strong brand identities that leave lasting impressions and build trust.",
+      points: [
+        { title: "Logo Design", desc: "Unique & memorable logos" },
+        { title: "Color System", desc: "Premium color palettes" },
+        { title: "Brand Strategy", desc: "Consistent visual direction" },
+      ],
+    },
+
+    web_design: {
+      title_en: "Web Design & Development",
+      title_bn: "ওয়েব ডিজাইন ও ডেভেলপমেন্ট",
+      desc:
+        "Modern, fast, and SEO-optimized websites tailored for business growth.",
+      points: [
+        { title: "UI/UX Design", desc: "Clean & user-friendly interfaces" },
+        { title: "Performance", desc: "Optimized loading speed" },
+        { title: "Responsive", desc: "All-device friendly layouts" },
+      ],
+    },
+
+    app_development: {
+      title_en: "Web Development",
+      title_bn: "ওয়েব ডেভেলপমেন্ট",
+      desc:
+        "Scalable and secure mobile applications for modern businesses.",
+      points: [
+        { title: "Android & iOS", desc: "Cross-platform solutions" },
+        { title: "Security", desc: "Safe & reliable architecture" },
+        { title: "Scalability", desc: "Future-ready development" },
+      ],
+    },
+
+    page_setup: {
+      title_en: "Professional Page Setup",
+      title_bn: "প্রফেশনাল পেজ সেটআপ",
+      desc:
+        "We create and optimize professional business pages that reflect brand value.",
+      points: [
+        { title: "Facebook Page Setup", desc: "Optimized business pages" },
+        { title: "Instagram Setup", desc: "Professional profile design" },
+        { title: "Brand Consistency", desc: "Unified visuals & information" },
+      ],
+    },
+
+    digital_marketing: {
+      title_en: "Digital Marketing",
+      title_bn: "ডিজিটাল মার্কেটিং",
+      desc:
+        "Result-driven digital marketing strategies to grow reach and engagement.",
+      points: [
+        { title: "Social Media Marketing", desc: "Audience-focused campaigns" },
+        { title: "Ad Management", desc: "ROI-focused paid advertising" },
+        { title: "Analytics & Growth", desc: "Data-driven optimization" },
+      ],
+    },
+  },
+},
+
+
+
     // --- Team Section ---
     team: {
       view_team: "View Team",
@@ -137,13 +289,16 @@ export const translations = {
       title: "Meet The Minds",
       desc: "The creative strategists, tech experts, and visionaries making it all happen.",
       members: [
-        { name: "Alex Morgan", role: "CEO & Founder" },
-        { name: "Sarah Jenkins", role: "Creative Director" },
-        { name: "David Ross", role: "Lead Developer" },
-        { name: "Emily Clark", role: "Marketing Head" },
-        { name: "Daniel Kim", role: "UI/UX Designer" },
-        { name: "Sophia Martinez", role: "Content Strategist" },
-        { name: "James Wilson", role: "SEO Specialist" }
+        { name: "M Abdur Rahaman", role: "CEO & Founder" },
+        { name: "Sk Shahed", role: "Digital Marketing Manager" },
+        { name: "Tareq Hassan", role: "Senior FullStuck Developer" },
+        { name: "Iqbal Hasan", role: "Web Developer" },
+        { name: "MD Mahafuj Hossain", role: "Web Developer" },
+        { name: "Abdullah", role: "Web Developer" },
+        { name: "Arko Debnath Turjo", role: "Senior Creative Designer" },
+        { name: "Redown", role: "Creative Designer" },
+        { name: "Abdullah", role: "Creative Designer" },
+        { name: "Sagor", role: "Head of Operation" }
       ]
     },
 
@@ -153,12 +308,12 @@ export const translations = {
       title: "What Our Clients Say",
       desc: "Don't just take our word for it. Check out what our satisfied clients have to say about our work.",
       reviews: [
-        { name: "Sarah Johnson", role: "CEO, TechFlow", comment: "Neon Studio transformed our brand entirely. The team is incredibly talented and easy to work with." },
-        { name: "Michael Lee", role: "Founder, StartUp X", comment: "The website they built for us increased our conversion rate by 200%. Highly recommended!" },
-        { name: "Emily Davis", role: "Marketing Director", comment: "Their SEO strategies are top-notch. We ranked on the first page of Google within 3 months." },
-        { name: "David Brown", role: "Product Manager", comment: "Amazing UI/UX design skills. They understood our vision perfectly and delivered beyond expectations." },
-        { name: "Jessica Wilson", role: "Owner, FashionHub", comment: "Professional, creative, and timely delivery. The best agency I have worked with so far." },
-        { name: "Robert Smith", role: "CTO, DataCorp", comment: "Great code quality and performance. The Next.js implementation was flawless." }
+        { name: "Fenian Umrah", role: "CEO, TechFlow", comment: "Neon Code transformed our brand entirely. The team is incredibly talented and easy to work with." },
+        { name: "M-Martly", role: "Founder, StartUp X", comment: "The website they built for us increased our conversion rate by 200%. Highly recommended!" },
+        { name: "Miah rasel bd", role: "Marketing Director", comment: "Their SEO strategies are top-notch. We ranked on the first page of Google within 3 months." },
+        { name: "Sk Lincoln", role: "Product Manager", comment: "Amazing UI/UX design skills. They understood our vision perfectly and delivered beyond expectations." },
+        { name: "Konok Shrabon", role: "Owner, FashionHub", comment: "Professional, creative, and timely delivery. The best agency I have worked with so far." },
+        { name: "Mavoza", role: "CTO, DataCorp", comment: "Great code quality and performance. The Next.js implementation was flawless." }
       ]
     },
 
@@ -198,13 +353,13 @@ export const translations = {
       desc: "Ready to take your business to the next level? Fill out the form or reach out to us directly.",
       info: {
          address_title: "Visit Us",
-         address: "123 Neon Street, Creative City, NY",
+         address: "House No: Saleha Monjil, 31/19, Syed Ali Hussain Road, Road no: 02, (AL Faruq Society), Sonadanga, Khulna-9100, Bangladesh",
          
          phone_title: "Call Us",
-         phone: "+1 234 567 890",
-         
+         phone: "+880 1344-224787",
+
          email_title: "Email Us",
-         email: "hello@neonscode.com"
+         email: "neoncode.co@gmail.com"
       },
       form: {
         name: "Your Name",
@@ -228,7 +383,7 @@ export const translations = {
       newsletter_desc: "Subscribe to our newsletter for latest updates and news.",
       placeholder: "Enter your email",
       btn: "Subscribe",
-      copyright: "© 2024 NeonCode. All rights reserved.",
+      copyright: "© 2026 NeonCode. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service"
     },
@@ -292,10 +447,10 @@ export const translations = {
 
     // --- Hero Section ---
     home: {
-      top_tagline: "নিয়ন স্টুডিওর সাথে অসাধারণ কিছু তৈরি করুন ✨",
+      top_tagline: "নিয়ন কোড সাথে অসাধারণ কিছু তৈরি করুন ✨",
       line1: "তৈরি করুন। ডিজাইন।",
       line2: "এটাই",
-      line3: "নিয়ন স্টুডিও",
+      line3: "নিয়ন কোড",
       desc: "আমরা ব্র্যান্ডিং, ওয়েব ডিজাইন এবং ডিজিটাল মার্কেটিং সলিউশনে ফোকাস করা একটি ক্রিয়েটিভ এজেন্সি। চলুন একসাথে অনন্য কিছু তৈরি করি।",
       btn_primary: "শুরু করুন",
       btn_secondary: "কাজ দেখুন",
@@ -428,7 +583,7 @@ export const translations = {
       title: "আমাদের ক্লায়েন্টরা যা বলেন",
       desc: "শুধু আমাদের কথায় বিশ্বাস করবেন না। আমাদের কাজের বিষয়ে সন্তুষ্ট ক্লায়েন্টরা কী বলছেন তা দেখে নিন।",
       reviews: [
-        { name: "সারা জনসন", role: "সিইও, টেকফ্লো", comment: "নিয়ন স্টুডিও আমাদের ব্র্যান্ডকে পুরোপুরি বদলে দিয়েছে। তাদের টিম অত্যন্ত প্রতিভাবান।" },
+        { name: "সারা জনসন", role: "সিইও, টেকফ্লো", comment: "নিয়ন কোড আমাদের ব্র্যান্ডকে পুরোপুরি বদলে দিয়েছে। তাদের টিম অত্যন্ত প্রতিভাবান।" },
         { name: "মাইকেল লি", role: "ফাউন্ডার, স্টার্টআপ এক্স", comment: "তারা যে ওয়েবসাইটটি বানিয়েছে তাতে আমাদের সেলস ২০০% বেড়েছে। তাদের কাজ অসাধারণ!" },
         { name: "এমিলি ডেভিস", role: "মার্কেটিং ডিরেক্টর", comment: "তাদের এসইও কৌশল খুবই কার্যকরী। ৩ মাসের মধ্যে আমরা গুগলের প্রথম পেজে চলে এসেছি।" },
         { name: "ডেভিড ব্রাউন", role: "প্রোডাক্ট ম্যানেজার", comment: "অসাধারণ UI/UX ডিজাইন। তারা আমাদের ভিশন বুঝতে পেরেছে এবং প্রত্যাশার চেয়ে ভালো কাজ দিয়েছে।" },
@@ -479,7 +634,7 @@ export const translations = {
          phone: "+৮৮০ ১৭১১ ০০০ ০০০",
          
          email_title: "ইমেইল করুন",
-         email: "hello@neonscode.com"
+         email: "hello@neoncode.com"
       },
       form: {
         name: "আপনার নাম",
@@ -503,7 +658,7 @@ export const translations = {
       newsletter_desc: "সর্বশেষ আপডেট এবং খবরের জন্য আমাদের নিউজলেটার সাবস্ক্রাইব করুন।",
       placeholder: "আপনার ইমেইল দিন",
       btn: "সাবস্ক্রাইব",
-      copyright: "© ২০২৪ নিয়ন স্টুডিও। সর্বস্বত্ব সংরক্ষিত।",
+      copyright: "© ২০২৪ নিয়ন কোড। সর্বস্বত্ব সংরক্ষিত।",
       privacy: "গোপনীয়তা নীতি",
       terms: "শর্তাবলী"
     },

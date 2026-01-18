@@ -21,10 +21,7 @@ const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind" 
 });
 
-export const metadata = {
-  title: "NeonCode Agency",
-  description: "Digital Solutions",
-};
+
 
 export default function RootLayout({ children }) {
   return (

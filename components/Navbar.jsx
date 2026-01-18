@@ -135,12 +135,12 @@ const Navbar = () => {
           </div>
 
           {/* ডেস্কটপ লগইন/সাইনআপ */}
-          <Link href="/login" className="hidden md:block px-5 py-1.5 text-white text-sm font-bold border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+          {/* <Link href="/login" className="hidden md:block px-5 py-1.5 text-white text-sm font-bold border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300">
             {t.nav.login}
           </Link>
           <Link href="/signup" className="hidden md:block px-5 py-1.5 bg-blue-600 text-white text-sm font-bold rounded-full hover:bg-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/30">
             {t.nav.signup}
-          </Link>
+          </Link> */}
 
           {/* ৪. মোবাইল হ্যামবার্গার বাটন (শুধু মোবাইলে দেখাবে) */}
           <button 
@@ -174,14 +174,14 @@ const Navbar = () => {
           <ScrambleLink href="/career" onClick={() => setMobileMenuOpen(false)}>{t.nav.career}</ScrambleLink>
           <ScrambleLink href="/contact" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</ScrambleLink>
 
-          <div className="border-t border-white/10 pt-4 flex flex-col gap-3">
+          {/* <div className="border-t border-white/10 pt-4 flex flex-col gap-3">
             <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="block text-center w-full px-5 py-2.5 text-white text-sm font-bold border border-white/20 rounded-xl hover:bg-white hover:text-black transition-all">
               {t.nav.login}
             </Link>
             <Link href="/signup" onClick={() => setMobileMenuOpen(false)} className="block text-center w-full px-5 py-2.5 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/30">
               {t.nav.signup}
             </Link>
-          </div>
+          </div> */}
         </div>
       )}
 

@@ -49,37 +49,74 @@ export default function Team() {
 
   // টিম মেম্বার ডাটা
   const teamData = [
-    { id: 1, name: t.team.members[0].name, role: t.team.members[0].role, img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-blue-500" },
-    { id: 2, name: t.team.members[1].name, role: t.team.members[1].role, img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-purple-500" },
-    { id: 3, name: t.team.members[2].name, role: t.team.members[2].role, img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-green-500" },
-    { id: 4, name: t.team.members[3].name, role: t.team.members[3].role, img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-pink-500" },
-    { id: 5, name: t.team.members[4].name, role: t.team.members[4].role, img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-yellow-500" },
-    { id: 6, name: t.team.members[5].name, role: t.team.members[5].role, img: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-cyan-500" },
-    { id: 7, name: t.team.members[6].name, role: t.team.members[6].role, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop", color: "group-hover:border-red-500" },
+    { id: 1, name: t.team.members[0].name, role: t.team.members[0].role, img: "https://i.ibb.co.com/Jjtt8b9L/M-Abdur-Rahaman.jpg", color: "group-hover:border-blue-500" },
+    { id: 2, name: t.team.members[1].name, role: t.team.members[1].role, img: "https://i.ibb.co.com/zWsL7Swz/Sahed.jpg", color: "group-hover:border-purple-500" },
+    { id: 3, name: t.team.members[2].name, role: t.team.members[2].role, img: "https://i.ibb.co.com/fZBXfmR/Tareq-Hassan.jpg", color: "group-hover:border-pink-500" },
+    { id: 4, name: t.team.members[3].name, role: t.team.members[3].role, img: "https://i.ibb.co.com/SD9yJDnK/i-QBAL.jpg" ,color: "group-hover:border-yellow-500" },
+    { id: 5, name: t.team.members[4].name, role: t.team.members[4].role, img: "https://i.ibb.co.com/67pgYb73/Mahfuj-vai.jpg", color: "group-hover:border-cyan-500" },
+    { id: 6, name: t.team.members[5].name, role: t.team.members[5].role, img: "https://i.ibb.co.com/zHLGHRv3/abdullah-dev.jpg", color: "group-hover:border-red-500" },
+    { id: 7, name: t.team.members[6].name, role: t.team.members[6].role, img: "https://i.ibb.co.com/0R9r5r9w/Arko.jpg", color: "group-hover:border-red-500" },
+    { id: 8, name: t.team.members[7].name, role: t.team.members[7].role, img: "https://i.ibb.co.com/nKwJwfm/Redown.jpg", color: "group-hover:border-red-500" },
+    { id: 9, name: t.team.members[8].name, role: t.team.members[8].role, img: "https://i.ibb.co.com/HLs5DgZs/Abdullah-vai.jpg", color: "group-hover:border-red-500" },
+    { id: 10, name: t.team.members[9].name, role: t.team.members[9].role, img: "https://i.ibb.co.com/215WfXVf/sagor.jpg", color: "group-hover:border-green-500" },
+  
   ];
 
   const infiniteTeam = [...teamData, ...teamData];
 
   // কার্ড রেন্ডারার
-  const MemberCard = ({ member }) => (
-    <div className={`group relative w-full h-[350px] rounded-2xl overflow-hidden border border-white/10 ${member.color} transition-colors duration-300 bg-black`}>
-      <Image src={member.img} alt={member.name} fill className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
-      
-      <div className="absolute top-4 right-4 flex flex-col gap-3 translate-x-14 group-hover:translate-x-0 transition-transform duration-500 ease-out z-20">
-        <Link href="#" className="w-9 h-9 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-[#0077b5] hover:text-white text-white border border-white/20 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></Link>
-        <Link href="#" className="w-9 h-9 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white text-white border border-white/20 transition-all delay-75"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></Link>
-        <Link href="#" className="w-9 h-9 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-[#E1306C] hover:text-white text-white border border-white/20 transition-all delay-100"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></Link>
-        <Link href="#" className="w-9 h-9 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-[#1877F2] hover:text-white text-white border border-white/20 transition-all delay-150"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></Link>
-      </div>
+const MemberCard = ({ member }) => (
+  <div className="group w-full rounded-2xl overflow-hidden border border-white/10 bg-black transition-all duration-300">
+    
+    {/* Image Section */}
+    <div className={`relative h-[300px] overflow-hidden ${member.color}`}>
+      <Image
+        src={member.img}
+        alt={member.name}
+        fill
+        className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+      />
 
-      <div className="absolute bottom-0 left-0 w-full p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-        <p className="text-blue-400 text-sm font-medium tracking-wide">{member.role}</p>
-        <div className="w-12 h-1 bg-white/20 mt-4 group-hover:w-full group-hover:bg-blue-500 transition-all duration-500"></div>
-      </div>
+    
     </div>
-  );
+
+    {/* Text Section (image এর নিচে) */}
+    <div className="p-5 text-center bg-[#0b0b0b]">
+      <h3 className="text-lg font-bold text-white mb-1">
+        {member.name}
+      </h3>
+    {/* Fixed WhatsApp Contact */}
+    <div>
+    <a
+      href="https://wa.me/8801344224787"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-green-500 hover:scale-110 transition-transform"
+      title="Contact on WhatsApp"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.01 0C5.38 0 .02 5.37 0 12c0 2.12.55 4.2 1.6 6.04L0 24l6.15-1.6A11.9 11.9 0 0 0 12 24h.01c6.63 0 11.99-5.37 11.99-12 0-3.19-1.24-6.18-3.48-8.52Z"/>
+      </svg>
+    </a>
+  </div>
+
+      <p className="text-blue-400 text-sm font-medium tracking-wide">
+        {member.role}
+      </p>
+      
+      <div className="w-10 h-[2px] bg-blue-500/40 mx-auto mt-3 group-hover:w-16 transition-all duration-300"></div>
+    </div>
+
+  </div>
+);
+
+
 
   return (
     // sectionRef এখানে ব্যবহার করা হয়েছে

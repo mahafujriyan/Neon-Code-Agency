@@ -8,6 +8,8 @@ import Preloader from "../components/Preloader";   // প্রথমবার �
 import DynamicPageLoader from "@/components/DynamicPageLoader";
 import Footer from "@/components/Footer";
 
+import ContactWhatsAppFloat from "../components/WhatsAppFloat";
+
 // ২. Poppins (ইংরেজি) কনফিগারেশন
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,24 +25,30 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata = {
-  title: "NeonCode Agency",
+  title: "NeonCode ",
   description: "Digital Solutions",
+  icons: {
+    icon: "/navbaricon/navicon.jpg",
+    shortcut:"/navbaricon/navicon.jpg",
+    apple: "/navbaricon/navicon.jpg",
+  },
 };
 /** @param {{ children: React.ReactNode }} props */
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* ৪. এখানে দেখুন: inter.className এর বদলে আমাদের ভেরিয়েবলগুলো বসানো হয়েছে */}
+   
       <body
         className={`${poppins.variable} ${hindSiliguri.variable} flex flex-col min-h-screen text-white bg-black`}
       >
         <LanguageProvider>
           <Preloader /> {/* রিফ্রেশ দিলে কাজ করবে (৩.৫ সেকেন্ড) */}
-          <DynamicPageLoader /> {/* লিংকে ক্লিক করলে কাজ করবে (১ সেকেন্ড) */}
+          <DynamicPageLoader />
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <ContactWhatsAppFloat />
         </LanguageProvider>
       </body>
     </html>
