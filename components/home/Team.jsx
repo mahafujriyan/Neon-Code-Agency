@@ -48,19 +48,19 @@ export default function Team() {
   }, [showAll]);
 
   // টিম মেম্বার ডাটা
-  const teamData = [
-    { id: 1, name: t.team.members[0].name, role: t.team.members[0].role, img: "https://i.ibb.co.com/Jjtt8b9L/M-Abdur-Rahaman.jpg", color: "group-hover:border-blue-500" },
-    { id: 2, name: t.team.members[1].name, role: t.team.members[1].role, img: "https://i.ibb.co.com/zWsL7Swz/Sahed.jpg", color: "group-hover:border-purple-500" },
-    { id: 3, name: t.team.members[2].name, role: t.team.members[2].role, img: "https://i.ibb.co.com/fZBXfmR/Tareq-Hassan.jpg", color: "group-hover:border-pink-500" },
-    { id: 4, name: t.team.members[3].name, role: t.team.members[3].role, img: "https://i.ibb.co.com/SD9yJDnK/i-QBAL.jpg" ,color: "group-hover:border-yellow-500" },
-    { id: 5, name: t.team.members[4].name, role: t.team.members[4].role, img: "https://i.ibb.co.com/67pgYb73/Mahfuj-vai.jpg", color: "group-hover:border-cyan-500" },
-    { id: 6, name: t.team.members[5].name, role: t.team.members[5].role, img: "https://i.ibb.co.com/zHLGHRv3/abdullah-dev.jpg", color: "group-hover:border-red-500" },
-    { id: 7, name: t.team.members[6].name, role: t.team.members[6].role, img: "https://i.ibb.co.com/0R9r5r9w/Arko.jpg", color: "group-hover:border-red-500" },
-    { id: 8, name: t.team.members[7].name, role: t.team.members[7].role, img: "https://i.ibb.co.com/nKwJwfm/Redown.jpg", color: "group-hover:border-red-500" },
-    { id: 9, name: t.team.members[8].name, role: t.team.members[8].role, img: "https://i.ibb.co.com/HLs5DgZs/Abdullah-vai.jpg", color: "group-hover:border-red-500" },
-    { id: 10, name: t.team.members[9].name, role: t.team.members[9].role, img: "https://i.ibb.co.com/215WfXVf/sagor.jpg", color: "group-hover:border-green-500" },
-  
-  ];
+const teamData = [
+  { id: 1, name: t.team.members[0].name, role: t.team.members[0].role, img: "https://i.ibb.co/Jjtt8b9L/M-Abdur-Rahaman.jpg", color: "group-hover:border-blue-500" },
+  { id: 2, name: t.team.members[1].name, role: t.team.members[1].role, img: "https://i.ibb.co/zWsL7Swz/Sahed.jpg", color: "group-hover:border-purple-500" },
+  { id: 3, name: t.team.members[2].name, role: t.team.members[2].role, img: "https://i.ibb.co/fZBXfmR/Tareq-Hassan.jpg", color: "group-hover:border-pink-500" },
+  { id: 4, name: t.team.members[3].name, role: t.team.members[3].role, img: "https://i.ibb.co/SD9yJDnK/i-QBAL.jpg", color: "group-hover:border-yellow-500" },
+  { id: 5, name: t.team.members[4].name, role: t.team.members[4].role, img: "https://i.ibb.co/67pgYb73/Mahfuj-vai.jpg", color: "group-hover:border-cyan-500" },
+  { id: 6, name: t.team.members[5].name, role: t.team.members[5].role, img: "https://i.ibb.co/zHLGHRv3/abdullah-dev.jpg", color: "group-hover:border-red-500" },
+  { id: 7, name: t.team.members[6].name, role: t.team.members[6].role, img: "https://i.ibb.co/0R9r5r9w/Arko.jpg", color: "group-hover:border-red-500" },
+  { id: 8, name: t.team.members[7].name, role: t.team.members[7].role, img: "https://i.ibb.co/nKwJwfm/Redown.jpg", color: "group-hover:border-red-500" },
+  { id: 9, name: t.team.members[8].name, role: t.team.members[8].role, img: "https://i.ibb.co/HLs5DgZs/Abdullah-vai.jpg", color: "group-hover:border-red-500" },
+  { id: 10, name: t.team.members[9].name, role: t.team.members[9].role, img: "https://i.ibb.co/215WfXVf/sagor.jpg", color: "group-hover:border-green-500" },
+];
+
 
   const infiniteTeam = [...teamData, ...teamData];
 
