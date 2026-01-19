@@ -15,24 +15,23 @@ export default function WorkShowcase() {
 
   if (!t) return null;
 
- const categories = t.recent.categories;
-const projects = t.recent.projects;
 
+const categories = t?.recent?.categories ?? [];
+const projects = t?.recent?.projects ?? [];
 
+const activeKey =
+  activeCategory === 0 || !categories[activeCategory]
+    ? "all"
+    : makeKey(categories[activeCategory]);
 
-  const activeKey =
-    activeCategory === 0
-      ? "all"
-      : makeKey(categories[activeCategory]);
+const filteredProjects =
+  activeKey === "all"
+    ? projects
+    : projects.filter(
+        (p) => makeKey(p.category) === activeKey
+      );
 
-  const filteredProjects =
-    activeKey === "all"
-      ? projects
-      : projects.filter(
-          (p) => makeKey(p.category) === activeKey
-        );
-
-const details = t.recent.details?.[activeKey];
+const details = t?.recent?.details?.[activeKey];
 
   return (
     <section className="bg-black text-white py-28">

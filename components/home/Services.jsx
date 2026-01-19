@@ -57,7 +57,13 @@ const Card = ({ i, title, desc, icon, img, hoverColor, progress, range, targetSc
         </div>
         <div className="relative w-full h-full rounded-[30px] overflow-hidden shadow-2xl bg-[#1a1a1a]">
           <div className="absolute inset-0 z-0">
-            <Image src={img} alt={title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+          <Image
+            src={img}
+            alt={title || "Service preview image"}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-50"></div>
           <div className={`absolute inset-0 bg-gradient-to-t ${hoverColor} to-transparent z-20 opacity-0 group-hover:opacity-90 transition-opacity duration-300`}></div>
