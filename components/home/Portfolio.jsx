@@ -5,57 +5,61 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-const CATEGORY_KEY_MAP = [
-  "all",
-  "branding",
-  "web_design",
-  "web_development",
-  "page_setup",
-  "digital_marketing",
-];
+/**
+ * helper → category normalize
+ * "Web Design" → "web_design"
+ * "ডিজিটাল মার্কেটিং" → "ডিজিটাল_মার্কেটিং"
+ */
+const normalize = (str = "") =>
+  str.toLowerCase().replace(/\s+/g, "_");
 
 export default function WorkShowcase() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(0);
 
-  if (!t?.recent) return null;
+  // 🔐 SAFETY GUARD (language load / switch safe)
+  if (!t || !t.recent) return null;
 
   const categories = t.recent.categories ?? [];
   const projects = t.recent.projects ?? [];
 
-  const activeKey = CATEGORY_KEY_MAP[activeCategory] || "all";
+  // 🧠 dynamic key (language independent)
+  const activeKey =
+    activeCategory === 0
+      ? "all"
+      : normalize(categories[activeCategory]);
 
+  // 🎯 filter logic (FIXED)
   const filteredProjects =
     activeKey === "all"
       ? projects
       : projects.filter(
-          (p) =>
-            CATEGORY_KEY_MAP.includes(activeKey) &&
-            CATEGORY_KEY_MAP.findIndex(
-              (k) => k === activeKey
-            ) !== -1
+          (p) => normalize(p.category) === activeKey
         );
 
+  // 📌 details (safe)
   const details = t.recent.details?.[activeKey];
 
   return (
     <section className="bg-black text-white py-28">
       <div className="container mx-auto px-6">
 
-        {/* HEADER */}
+        {/* ================= HEADER ================= */}
         <div className="max-w-2xl mb-16">
           <span className="text-blue-500 font-bold tracking-widest uppercase text-sm">
             {t.recent.tag}
           </span>
+
           <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-4">
             {t.recent.title}
           </h2>
+
           <p className="text-gray-400 text-lg">
             {t.recent.desc}
           </p>
         </div>
 
-        {/* CATEGORY BUTTONS */}
+        {/* ================= CATEGORY BUTTONS ================= */}
         <div className="flex flex-wrap gap-3 mb-14">
           {categories.map((cat, i) => (
             <button
@@ -72,13 +76,14 @@ export default function WorkShowcase() {
           ))}
         </div>
 
-        {/* PROJECT GRID */}
+        {/* ================= PROJECT GRID ================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="relative group aspect-[4/3] rounded-2xl overflow-hidden"
             >
@@ -88,7 +93,9 @@ export default function WorkShowcase() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
+
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition" />
+
               <div className="absolute bottom-0 p-6 opacity-0 group-hover:opacity-100 transition">
                 <p className="text-blue-400 text-sm uppercase font-bold">
                   {project.category}
@@ -101,7 +108,7 @@ export default function WorkShowcase() {
           ))}
         </div>
 
-        {/* DETAILS */}
+        {/* ================= DETAILS ================= */}
         <AnimatePresence>
           {details && (
             <motion.div
@@ -114,6 +121,7 @@ export default function WorkShowcase() {
               <h3 className="text-3xl md:text-4xl font-bold mb-2">
                 {details.title_en}
               </h3>
+
               <p className="text-xl text-blue-400 mb-6">
                 {details.title_bn}
               </p>
@@ -123,10 +131,17 @@ export default function WorkShowcase() {
               </p>
 
               <div className="grid md:grid-cols-3 gap-6">
-                {details.points.map((p, i) => (
-                  <div key={i} className="bg-[#111] rounded-xl p-6">
-                    <h4 className="font-bold mb-2">{p.title}</h4>
-                    <p className="text-gray-400 text-sm">{p.desc}</p>
+                {details.points?.map((p, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#111] rounded-xl p-6"
+                  >
+                    <h4 className="font-bold mb-2">
+                      {p.title}
+                    </h4>
+                    <p className="text-gray-400 text-sm">
+                      {p.desc}
+                    </p>
                   </div>
                 ))}
               </div>
