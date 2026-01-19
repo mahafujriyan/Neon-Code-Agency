@@ -21,7 +21,7 @@ const poppins = Poppins({
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-hind", // ভেরিয়েবল নাম
+  variable: "--font-hind", 
 });
 
 export const metadata = {
