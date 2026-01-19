@@ -5,33 +5,38 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-// helper: category → key
-const makeKey = (str) =>
-  str.toLowerCase().replace(/\s+/g, "_");
+const CATEGORY_KEY_MAP = [
+  "all",
+  "branding",
+  "web_design",
+  "web_development",
+  "page_setup",
+  "digital_marketing",
+];
 
 export default function WorkShowcase() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(0);
 
-  if (!t) return null;
+  if (!t?.recent) return null;
 
+  const categories = t.recent.categories ?? [];
+  const projects = t.recent.projects ?? [];
 
-const categories = t?.recent?.categories ?? [];
-const projects = t?.recent?.projects ?? [];
+  const activeKey = CATEGORY_KEY_MAP[activeCategory] || "all";
 
-const activeKey =
-  activeCategory === 0 || !categories[activeCategory]
-    ? "all"
-    : makeKey(categories[activeCategory]);
+  const filteredProjects =
+    activeKey === "all"
+      ? projects
+      : projects.filter(
+          (p) =>
+            CATEGORY_KEY_MAP.includes(activeKey) &&
+            CATEGORY_KEY_MAP.findIndex(
+              (k) => k === activeKey
+            ) !== -1
+        );
 
-const filteredProjects =
-  activeKey === "all"
-    ? projects
-    : projects.filter(
-        (p) => makeKey(p.category) === activeKey
-      );
-
-const details = t?.recent?.details?.[activeKey];
+  const details = t.recent.details?.[activeKey];
 
   return (
     <section className="bg-black text-white py-28">
@@ -40,13 +45,13 @@ const details = t?.recent?.details?.[activeKey];
         {/* HEADER */}
         <div className="max-w-2xl mb-16">
           <span className="text-blue-500 font-bold tracking-widest uppercase text-sm">
-            {t.portfolio.tag}
+            {t.recent.tag}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-4">
-            {t.portfolio.title}
+            {t.recent.title}
           </h2>
           <p className="text-gray-400 text-lg">
-            {t.portfolio.desc}
+            {t.recent.desc}
           </p>
         </div>
 
@@ -96,7 +101,7 @@ const details = t?.recent?.details?.[activeKey];
           ))}
         </div>
 
-        {/* DETAILS (HOME ONLY) */}
+        {/* DETAILS */}
         <AnimatePresence>
           {details && (
             <motion.div
