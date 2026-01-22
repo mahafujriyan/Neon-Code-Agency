@@ -294,7 +294,7 @@ services: {
         { name: "MD Mahafuj Hossain", role: "Web Developer" },
         { name: "Abdullah", role: "Web Developer" },
         { name: "Arko Debnath Turjo", role: "Senior Creative Designer" },
-        { name: "Redowan", role: "Creative Designer" },
+        { name: "Redowan", role: "Graphic & Motion Designer" },
         { name: "Abdullah", role: "Creative Designer" },
         { name: "Sagor", role: "Head of Operation" }
       ]
