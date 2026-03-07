@@ -95,6 +95,7 @@ const Navbar = () => {
           <ScrambleLink href="/about">{t.nav.about}</ScrambleLink>
           <ScrambleLink href="/services">{t.nav.services}</ScrambleLink>
           <ScrambleLink href="/portfolio">{t.nav.portfolio}</ScrambleLink>
+          <ScrambleLink href="/pricing">{t.nav.pricing}</ScrambleLink>
           <ScrambleLink href="/career">{t.nav.career}</ScrambleLink>
           <ScrambleLink href="/contact">{t.nav.contact}</ScrambleLink>
         </div>
@@ -171,6 +172,7 @@ const Navbar = () => {
           <ScrambleLink href="/about" onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</ScrambleLink>
           <ScrambleLink href="/services" onClick={() => setMobileMenuOpen(false)}>{t.nav.services}</ScrambleLink>
           <ScrambleLink href="/portfolio" onClick={() => setMobileMenuOpen(false)}>{t.nav.portfolio}</ScrambleLink>
+          <ScrambleLink href="/pricing" onClick={() => setMobileMenuOpen(false)}>{t.nav.pricing}</ScrambleLink>
           <ScrambleLink href="/career" onClick={() => setMobileMenuOpen(false)}>{t.nav.career}</ScrambleLink>
           <ScrambleLink href="/contact" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</ScrambleLink>
 

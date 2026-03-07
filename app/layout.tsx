@@ -21,7 +21,7 @@ const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind" 
 });
 export const metadata = {
-  title: "NeonCode ",
+  title: "Neon Code ",
   description: "Digital Solutions",
   icons: {
     icon: "/navbaricon/navicon.jpg",
