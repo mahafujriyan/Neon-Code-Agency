@@ -9,6 +9,7 @@ export const translations = {
       about: "About",
       services: "Services",
       portfolio: "Portfolio",
+      pricing: "Pricing",
       career: "Career",
       contact: "Contact",
       login: "Login",
@@ -294,7 +295,7 @@ services: {
         { name: "MD Mahafuj Hossain", role: "Web Developer" },
         { name: "Abdullah", role: "Web Developer" },
         { name: "Arko Debnath Turjo", role: "Senior Creative Designer" },
-        { name: "Redown", role: "Creative Designer" },
+        { name: "Redowan", role: "Graphic & Motion Designer" },
         { name: "Abdullah", role: "Creative Designer" },
         { name: "Sagor", role: "Head of Operation" }
       ]
@@ -437,6 +438,7 @@ services: {
       about: "সম্পর্ক",
       services: "সার্ভিস",
       portfolio: "পোর্টফোলিও",
+      pricing: "প্রাইসিং",
       career: "ক্যারিয়ার",
       contact: "যোগাযোগ",
       login: "লগইন",

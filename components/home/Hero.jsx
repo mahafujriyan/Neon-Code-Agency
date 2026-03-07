@@ -132,7 +132,7 @@ export default function Hero() {
             {/* ১. ইমেজ কন্টেইনার */}
             <div className="relative w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
               <Image 
-                src="/heroimg/heroimg.jpg" 
+                src="/heroimg/team.jpeg" 
                 alt="Hero Image" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-110"

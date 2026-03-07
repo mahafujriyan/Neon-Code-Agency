@@ -20,7 +20,15 @@ const hindSiliguri = Hind_Siliguri({
   weight: ["300", "400", "500", "600", "700"], 
   variable: "--font-hind" 
 });
-
+export const metadata = {
+  title: "Neon Code ",
+  description: "Digital Solutions",
+  icons: {
+    icon: "/navbaricon/navicon.jpg",
+    shortcut:"/navbaricon/navicon.jpg",
+    apple: "/navbaricon/navicon.jpg",
+  },
+};
 
 
 export default function RootLayout({ children }) {
