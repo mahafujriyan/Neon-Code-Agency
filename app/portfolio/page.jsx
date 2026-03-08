@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { portfolioCategories, portfolioProjects } from "@/utils/portfolioProjects";
+import LeadProjectPopup from "@/components/LeadProjectPopup";
 
 export default function PortfolioPage() {
   const { t } = useLanguage();
@@ -28,6 +29,8 @@ export default function PortfolioPage() {
   );
 
   const [activeCategory, setActiveCategory] = useState(labels.all);
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [popupPrefill, setPopupPrefill] = useState({ projectName: "", serviceType: "" });
 
   const normalizedCategories = useMemo(
     () => [labels.all, ...portfolioCategories.filter((category) => category !== "All")],
@@ -135,12 +138,19 @@ export default function PortfolioPage() {
                     >
                       {labels.viewCase}
                     </Link>
-                    <Link
-                      href="/contact"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPopupPrefill({
+                          projectName: project.title,
+                          serviceType: project.serviceTrack,
+                        });
+                        setPopupOpen(true);
+                      }}
                       className="rounded-xl border border-white/25 px-4 py-2 text-sm font-semibold text-gray-100 transition hover:bg-white/10"
                     >
                       {labels.startProject}
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </motion.article>
@@ -152,6 +162,16 @@ export default function PortfolioPage() {
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-6 py-8 text-center text-sm text-gray-300">{labels.noData}</div>
         )}
       </section>
+
+      {popupOpen && (
+        <LeadProjectPopup
+          open={popupOpen}
+          onClose={() => setPopupOpen(false)}
+          defaultProjectName={popupPrefill.projectName}
+          defaultServiceType={popupPrefill.serviceType}
+          key={`${popupPrefill.projectName}-${popupPrefill.serviceType}`}
+        />
+      )}
     </main>
   );
 }

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import LeadProjectPopup from "@/components/LeadProjectPopup";
 
 const serviceCategories = [
   {
@@ -148,6 +149,9 @@ export default function ServicesPage() {
   const [activeCategory, setActiveCategory] = useState(serviceCategories[0].id);
   const [expandedService, setExpandedService] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [popupPrefill, setPopupPrefill] = useState({ projectName: "", serviceType: "" });
+  const [discoveryOpen, setDiscoveryOpen] = useState(false);
 
   const currentCategory = useMemo(
     () => serviceCategories.find((category) => category.id === activeCategory) ?? serviceCategories[0],
@@ -214,12 +218,13 @@ export default function ServicesPage() {
               <h2 className="text-2xl font-extrabold md:text-3xl">{currentCategory.title}</h2>
               <p className="mt-2 text-sm text-white/80 md:text-base">{currentCategory.tagline}</p>
             </div>
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={() => setDiscoveryOpen(true)}
               className="rounded-xl border border-white/20 bg-white px-5 py-2 text-sm font-bold text-black transition hover:scale-[1.03]"
             >
               Book discovery call
-            </Link>
+            </button>
           </div>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
@@ -271,12 +276,19 @@ export default function ServicesPage() {
                       >
                         {isExpanded ? "Hide preview" : "See sample workflow"}
                       </button>
-                      <Link
-                        href="/contact"
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setPopupPrefill({
+                            projectName: `${service.name} Project`,
+                            serviceType: service.name,
+                          });
+                          setPopupOpen(true);
+                        }}
                         className="rounded-lg border border-white/20 px-4 py-2 text-xs font-semibold text-gray-100 transition hover:border-white/35 hover:bg-white/10"
                       >
                         Start this service
-                      </Link>
+                      </button>
                     </div>
 
                     <AnimatePresence>
@@ -356,12 +368,20 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setPopupPrefill({
+                        projectName: `${selectedService.name} Project`,
+                        serviceType: selectedService.name,
+                      });
+                      setPopupOpen(true);
+                      setSelectedService(null);
+                    }}
                     className="rounded-xl bg-white px-5 py-2 text-sm font-bold text-black transition hover:scale-[1.02]"
                   >
                     Request proposal
-                  </Link>
+                  </button>
                   <Link
                     href="/portfolio"
                     className="rounded-xl border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
@@ -374,6 +394,26 @@ export default function ServicesPage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {popupOpen && (
+        <LeadProjectPopup
+          open={popupOpen}
+          onClose={() => setPopupOpen(false)}
+          defaultProjectName={popupPrefill.projectName}
+          defaultServiceType={popupPrefill.serviceType}
+          key={`${popupPrefill.projectName}-${popupPrefill.serviceType}`}
+        />
+      )}
+
+      {discoveryOpen && (
+        <LeadProjectPopup
+          open={discoveryOpen}
+          onClose={() => setDiscoveryOpen(false)}
+          meetingOnly
+          title="Book Discovery Call"
+          key="discovery-meeting"
+        />
+      )}
     </main>
   );
 }

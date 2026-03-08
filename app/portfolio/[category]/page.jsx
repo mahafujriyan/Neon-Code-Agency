@@ -3,12 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { portfolioProjects } from "@/utils/portfolioProjects";
+import LeadProjectPopup from "@/components/LeadProjectPopup";
 
 export default function PortfolioCaseStudyPage() {
   const { category } = useParams();
   const slug = typeof category === "string" ? category : "";
+  const [popupOpen, setPopupOpen] = useState(false);
 
   const project = portfolioProjects.find((item) => item.slug === slug);
 
@@ -149,9 +152,13 @@ export default function PortfolioCaseStudyPage() {
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link href="/contact" className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-black transition hover:scale-[1.02]">
+          <button
+            type="button"
+            onClick={() => setPopupOpen(true)}
+            className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-black transition hover:scale-[1.02]"
+          >
             {labels.start}
-          </Link>
+          </button>
           <Link
             href={`/portfolio/${nextProject.slug}`}
             className="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
@@ -160,6 +167,17 @@ export default function PortfolioCaseStudyPage() {
           </Link>
         </div>
       </section>
+
+      {popupOpen && (
+        <LeadProjectPopup
+          open={popupOpen}
+          onClose={() => setPopupOpen(false)}
+          defaultProjectName={project.title}
+          defaultServiceType={project.serviceTrack}
+          title={`Start ${project.title}`}
+          key={project.slug}
+        />
+      )}
     </main>
   );
 }
