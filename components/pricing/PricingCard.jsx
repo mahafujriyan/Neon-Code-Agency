@@ -1,15 +1,38 @@
-﻿"use client";
+"use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function PricingCard({ plan, lang, labels, activeMode, index }) {
+const WHATSAPP_NUMBER = "8801344224787";
+
+const buildWhatsAppLink = ({ lang, serviceLabel, pageLabel, packageName, modeLabel, price, suffix }) => {
+  const message =
+    lang === "bn"
+      ? `Assalamu Alaikum, ami apnader ${serviceLabel}${pageLabel ? ` er ${pageLabel}` : ""} ${packageName} package somporke bistarito jante chai. Billing: ${modeLabel}. Price: $${price} ${suffix}. Plz janaben.`
+      : `Hello, I want to know details about your ${serviceLabel}${pageLabel ? ` ${pageLabel}` : ""} ${packageName} package. Billing: ${modeLabel}. Price: $${price} ${suffix}. Please share details.`;
+
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.trim())}`;
+};
+
+export default function PricingCard({ plan, lang, labels, activeMode, index, serviceKey, pageKey }) {
   const name = plan.names[lang] || plan.names.en;
   const description = plan.descriptions[lang] || plan.descriptions.en;
   const features = plan.features[lang] || plan.features.en;
   const price = plan.prices[activeMode] ?? plan.prices.oneTime ?? plan.prices.monthly;
   const ctaLabel = labels.ctas[plan.ctaType] || labels.ctas.default;
   const suffix = labels.priceSuffix[activeMode] || "";
+  const serviceLabel = labels.serviceTabs?.[serviceKey] || serviceKey;
+  const pageLabel = pageKey ? labels.pageTabs?.[pageKey] || pageKey : "";
+  const modeLabel = labels.modeTabs?.[activeMode] || activeMode;
+  const waHref = buildWhatsAppLink({
+    lang,
+    serviceLabel,
+    pageLabel,
+    packageName: name,
+    modeLabel,
+    price,
+    suffix,
+  });
+
   const highlightTone = plan.featured
     ? "from-[#00F5D4]/20 via-[#00F5D4]/5 to-transparent"
     : "from-[#7C3AED]/20 via-[#7C3AED]/5 to-transparent";
@@ -66,8 +89,10 @@ export default function PricingCard({ plan, lang, labels, activeMode, index }) {
         ))}
       </ul>
 
-      <Link
-        href="/contact"
+      <a
+        href={waHref}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`relative z-10 mt-7 block rounded-xl px-4 py-3 text-center text-sm font-semibold transition-all duration-300 ${
           plan.featured
             ? "bg-gradient-to-r from-[#00F5D4] to-[#4ADE80] text-[#062326] hover:brightness-110 hover:shadow-[0_0_22px_rgba(0,245,212,0.35)]"
@@ -75,8 +100,7 @@ export default function PricingCard({ plan, lang, labels, activeMode, index }) {
         }`}
       >
         {ctaLabel} &gt;
-      </Link>
+      </a>
     </motion.article>
   );
 }
-
