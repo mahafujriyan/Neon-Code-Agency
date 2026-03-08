@@ -19,7 +19,7 @@ export default function Preloader() {
           key="preloader"
           className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-transparent pointer-events-none"
           exit={{ 
-            opacity: 1, // মেইন কন্টেইনার অপাসিটি ১ ই থাকবে, শুধু ভেতরটা সরবে
+            opacity: 1, 
             transition: { duration: 1 } 
           }}
         >
@@ -42,7 +42,7 @@ export default function Preloader() {
             animate={{ y: "0%" }}
             exit={{ 
               y: "-100%",
-              // রাউন্ডেড কর্নার এনিমেশন যা Pixelr-এ দেখা যায়
+             
               borderBottomLeftRadius: "100vw",
               borderBottomRightRadius: "100vw",
             }}

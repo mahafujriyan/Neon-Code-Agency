@@ -1,155 +1,157 @@
-// app/portfolio/page.jsx
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { portfolioCategories, portfolioProjects } from "@/utils/portfolioProjects";
 
 export default function PortfolioPage() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
 
-  const ALL = lang === "en" ? "All" : "সব";
-  const [activeCategory, setActiveCategory] = useState(ALL);
+  const labels = useMemo(
+    () => ({
+      tag: "REAL PROJECT SHOWCASE",
+      title: "Our Portfolio",
+      subtitle: "Every project card includes delivery context, measurable outcomes, and visual references.",
+      all: "All",
+      viewCase: "View case study",
+      startProject: "Start project",
+      noData: "No projects found in this category.",
+      duration: "Duration",
+      team: "Team",
+      outcome: "Top outcome",
+      sector: "Sector",
+    }),
+    []
+  );
+
+  const [activeCategory, setActiveCategory] = useState(labels.all);
+
+  const normalizedCategories = useMemo(
+    () => [labels.all, ...portfolioCategories.filter((category) => category !== "All")],
+    [labels.all]
+  );
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === labels.all) return portfolioProjects;
+    return portfolioProjects.filter((project) => project.category === activeCategory);
+  }, [activeCategory, labels.all]);
 
   if (!t) return null;
 
-  const categories = t.portfolio.categories;
-
- const projects = [
-  {
-    id: 1,
-    title: "Neon Brand Identity",
-    category: lang === "en" ? "Branding" : "ব্র্যান্ডিং",
-    img: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Fintech Dashboard",
-    category: lang === "en" ? "Web Design" : "ওয়েব ডিজাইন",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Eco-Friendly App",
-    category: lang === "en" ? "App Dev" : "অ্যাপ",
-    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Fashion E-commerce",
-    category: lang === "en" ? "Web Development" : "ওয়েব ডিজাইন",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Tech Startup Marketing",
-    category: lang === "en" ? "Marketing" : "মার্কেটিং",
-    img: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Modern Architecture",
-    category: lang === "en" ? "Branding" : "ব্র্যান্ডিং",
-    img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: 7,
-    title: "Professional Page Setup",
-    category: lang === "en"
-      ? "Professional Page Setup"
-      : "প্রফেশনাল পেজ সেটআপ",
-    img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1000&auto=format&fit=crop",
-  },
-];
-
-
-  const filteredProjects =
-    activeCategory === ALL
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
-    <main className="bg-black text-white min-h-screen pt-24 pb-20">
+    <main className="relative min-h-screen overflow-hidden bg-[#05080a] pt-24 pb-20 text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[5%] top-[2%] h-72 w-72 rounded-full bg-cyan-600/15 blur-[130px]" />
+        <div className="absolute right-[4%] top-[25%] h-[24rem] w-[24rem] rounded-full bg-orange-500/12 blur-[120px]" />
+      </div>
 
-      {/* HERO */}
-      <section className="container mx-auto px-6 text-center mb-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">
-            {t.portfolio.tag}
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Creative <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Showcase</span>
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            {t.portfolio.desc}
+      <section className="container relative z-10 mx-auto px-5 md:px-8">
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
+          <p className="mb-4 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs tracking-[0.22em] text-white/70">
+            {labels.tag}
           </p>
+          <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-6xl">{t.portfolio?.title || labels.title}</h1>
+          <p className="mt-4 max-w-3xl text-gray-300 md:text-lg">{t.portfolio?.desc || labels.subtitle}</p>
         </motion.div>
-      </section>
 
-      {/* FILTERS */}
-      <section className="container mx-auto px-6 mb-12">
-        <div className="flex flex-wrap justify-center gap-4">
-          {[ ...categories].map((cat, i) => (
+        <div className="mb-10 flex flex-wrap gap-3">
+          {normalizedCategories.map((category) => (
             <button
-              key={i}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-bold border transition-all ${
-                activeCategory === cat
-                  ? "bg-white text-black border-white"
-                  : "border-white/20 text-gray-400 hover:text-white hover:border-white"
+              key={category}
+              type="button"
+              onClick={() => setActiveCategory(category)}
+              className={`rounded-full border px-5 py-2 text-sm font-semibold transition ${
+                activeCategory === category
+                  ? "border-white bg-white text-black"
+                  : "border-white/20 bg-white/5 text-gray-300 hover:border-white/35 hover:bg-white/10"
               }`}
             >
-              {cat}
+              {category}
             </button>
           ))}
         </div>
-      </section>
 
-      {/* GRID */}
-      <section className="container mx-auto px-6">
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <Link
-                key={project.id}
-                href={`/portfolio/${encodeURIComponent(project.category)}`}
+            {filteredProjects.map((project, index) => (
+              <motion.article
+                layout
+                key={project.slug}
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 14, scale: 0.98 }}
+                transition={{ delay: index * 0.04, duration: 0.28 }}
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-[#0c1216]/90 shadow-[0_15px_35px_rgba(0,0,0,0.35)]"
               >
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 cursor-pointer"
-                >
+                <div className="relative h-52 w-full overflow-hidden">
                   <Image
-                    src={project.img}
+                    src={project.coverImage}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
                   />
-
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition" />
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 opacity-0 group-hover:opacity-100 transition">
-                    <span className="text-blue-400 text-xs uppercase font-bold">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
+                    <span className="rounded-full border border-white/30 bg-black/35 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-gray-100">
                       {project.category}
                     </span>
-                    <h3 className="text-xl font-bold mt-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm mt-2 text-white/70">
-                      View Category →
-                    </p>
+                    <span className="text-xs text-gray-200">{project.year}</span>
                   </div>
-                </motion.div>
-              </Link>
+                </div>
+
+                <div className="p-5">
+                  <h3 className="text-2xl font-extrabold leading-tight">{project.title}</h3>
+                  <p className="mt-1 text-sm text-cyan-200/90">{project.client}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-300">{project.summary}</p>
+
+                  <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      <p className="text-gray-400">{labels.sector}</p>
+                      <p className="mt-1 font-semibold text-white">{project.industry}</p>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      <p className="text-gray-400">{labels.duration}</p>
+                      <p className="mt-1 font-semibold text-white">{project.duration}</p>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      <p className="text-gray-400">{labels.team}</p>
+                      <p className="mt-1 font-semibold text-white">{project.teamSize}</p>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      <p className="text-gray-400">{labels.outcome}</p>
+                      <p className="mt-1 font-semibold text-white">{project.outcomes[0]}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    <Link
+                      href={`/portfolio/${project.slug}`}
+                      className="rounded-xl bg-white px-4 py-2 text-sm font-bold text-black transition hover:scale-[1.03]"
+                    >
+                      {labels.viewCase}
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="rounded-xl border border-white/25 px-4 py-2 text-sm font-semibold text-gray-100 transition hover:bg-white/10"
+                    >
+                      {labels.startProject}
+                    </Link>
+                  </div>
+                </div>
+              </motion.article>
             ))}
           </AnimatePresence>
         </motion.div>
-      </section>
 
+        {!filteredProjects.length && (
+          <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-6 py-8 text-center text-sm text-gray-300">{labels.noData}</div>
+        )}
+      </section>
     </main>
   );
 }
