@@ -4,7 +4,7 @@
 // import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 // === ১. এনিমেটেড কাউন্টার কম্পোনেন্ট (আলাদা ফাংশন) ===
@@ -67,15 +67,15 @@ export default function About() {
     <section className="relative w-full py-20 bg-black text-white overflow-hidden">
       
       {/* ব্যাকগ্রাউন্ড গ্লো */}
-      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-blue-900/20 rounded-full blur-[100px] -translate-y-1/2"></div>
+      <div className="absolute left-0 top-1/2 h-[220px] w-[220px] -translate-y-1/2 rounded-full bg-blue-900/20 blur-[100px] sm:h-[300px] sm:w-[300px]"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           
           {/* === বাম পাশ: ইমেজ গ্রিড === */}
           <div className="relative">
             {/* বড় ছবি */}
-            <div className="relative w-[80%] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 ml-auto z-10 group">
+            <div className="relative z-10 ml-auto aspect-[3/4] w-full max-w-[440px] overflow-hidden rounded-2xl border border-white/10 sm:w-[85%]">
               <Image
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto=format&fit=crop" 
                 alt="Our Team" 
@@ -86,7 +86,7 @@ export default function About() {
             </div>
 
             {/* ছোট ছবি */}
-            <div className="absolute bottom-10 left-0 w-[55%] aspect-square rounded-2xl overflow-hidden border-2 border-black shadow-2xl z-20 group">
+            <div className="group absolute -bottom-6 left-2 z-20 aspect-square w-[56%] max-w-[240px] overflow-hidden rounded-2xl border-2 border-black shadow-2xl sm:bottom-8 sm:left-0">
               <Image 
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1470&auto=format&fit=crop" 
                 alt="Working" 
@@ -96,7 +96,7 @@ export default function About() {
             </div>
 
             {/* ডেকোরেটিভ ডট */}
-            <div className="absolute -top-5 -right-5 w-24 h-24 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-50 border border-white/20 rounded-full animate-spin-slow"></div>
+            <div className="absolute -right-3 -top-3 h-16 w-16 animate-spin-slow rounded-full border border-white/20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-50 sm:-right-5 sm:-top-5 sm:h-24 sm:w-24"></div>
           </div>
 
 
@@ -107,20 +107,20 @@ export default function About() {
               {t.about.tag}
             </span>
 
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+            <h2 className="mb-6 text-3xl font-bold leading-tight md:text-5xl">
               {t.about.title}
             </h2>
 
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+            <p className="mb-8 text-base leading-relaxed text-gray-400 sm:text-lg">
               {t.about.desc}
             </p>
 
             {/* --- পরিসংখ্যান (Stats with Counter) --- */}
-            <div className="grid grid-cols-3 gap-6 mb-10 border-t border-white/10 pt-8">
+            <div className="mb-10 grid grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
               
               {/* কাউন্টার ১ */}
               <div>
-                <h3 className="text-4xl font-bold text-white mb-2">
+                <h3 className="mb-2 text-3xl font-bold text-white sm:text-4xl">
                   {/* এখানে AnimatedCounter ব্যবহার করা হয়েছে */}
                   <AnimatedCounter targetString={t.about.stats.s1_num} />
                 </h3>
@@ -129,7 +129,7 @@ export default function About() {
 
               {/* কাউন্টার ২ */}
               <div>
-                <h3 className="text-4xl font-bold text-blue-400 mb-2">
+                <h3 className="mb-2 text-3xl font-bold text-blue-400 sm:text-4xl">
                   <AnimatedCounter targetString={t.about.stats.s2_num} />
                 </h3>
                 <p className="text-gray-500 text-sm font-medium">{t.about.stats.s2_text}</p>
@@ -137,7 +137,7 @@ export default function About() {
 
               {/* কাউন্টার ৩ */}
               <div>
-                <h3 className="text-4xl font-bold text-purple-400 mb-2">
+                <h3 className="mb-2 text-3xl font-bold text-purple-400 sm:text-4xl">
                   <AnimatedCounter targetString={t.about.stats.s3_num} />
                 </h3>
                 <p className="text-gray-500 text-sm font-medium">{t.about.stats.s3_text}</p>

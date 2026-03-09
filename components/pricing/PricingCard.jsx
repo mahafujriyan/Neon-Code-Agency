@@ -46,7 +46,7 @@ export default function PricingCard({ plan, lang, labels, activeMode, index, ser
       whileHover={{ y: -10, scale: 1.01 }}
       className={`group relative isolate overflow-hidden rounded-[28px] border p-6 backdrop-blur-xl transition-all duration-300 ${
         plan.featured
-          ? "scale-[1.03] bg-gradient-to-br from-[#1f2937]/95 via-[#0f182b]/95 to-[#0b0f19]/95 border-[#00F5D4]/70 shadow-[0_0_38px_rgba(0,245,212,0.22)]"
+          ? "scale-[1.03] bg-gradient-to-br from-[#1f2937]/95 via-[#1e293b]/95 to-[#0b0f19]/95 border-[#00F5D4]/70 shadow-[0_0_38px_rgba(0,245,212,0.22)]"
           : "bg-gradient-to-br from-[#111827]/90 to-[#0b0f19]/95 border-[#1F2937] hover:border-[#00F5D4]/40 hover:shadow-[0_0_32px_rgba(124,58,237,0.18)]"
       }`}
     >
