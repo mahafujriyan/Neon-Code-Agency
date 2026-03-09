@@ -6,12 +6,43 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
+import { loginUser } from "@/utils/localAuth";
 
 export default function Login() {
   const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   if (!t) return null;
+
+  const registered = searchParams.get("registered") === "1";
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setError("");
+
+    if (!email.trim() || !password.trim()) {
+      setError("Please enter email and password.");
+      return;
+    }
+
+    setLoading(true);
+    const result = loginUser({ email, password });
+    setLoading(false);
+
+    if (!result.ok) {
+      setError(result.message);
+      return;
+    }
+
+    router.push("/");
+  };
 
   return (
     <main className="min-h-screen w-full flex bg-black text-white pt-20">
@@ -60,7 +91,12 @@ export default function Login() {
           </div>
 
           {/* ফর্ম */}
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {registered && (
+              <p className="rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-300">
+                Account created successfully. Please sign in.
+              </p>
+            )}
             
             {/* ইমেইল */}
             <div className="space-y-2">
@@ -68,6 +104,8 @@ export default function Login() {
               <input 
                 type="email" 
                 placeholder="name@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600"
               />
             </div>
@@ -79,6 +117,8 @@ export default function Login() {
                 <input 
                   type={showPassword ? "text" : "password"} 
                   placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600 pr-12"
                 />
                 {/* আই আইকন (Show/Hide) */}
@@ -108,8 +148,14 @@ export default function Login() {
             </div>
 
             {/* বাটন */}
-            <button className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 transform hover:-translate-y-1">
-              {t.auth.btn_login}
+            {error && <p className="text-sm text-red-400">{error}</p>}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? "Signing in..." : t.auth.btn_login}
             </button>
 
           </form>
