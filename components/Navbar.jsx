@@ -82,8 +82,8 @@ const Navbar = () => {
     { href: "/about", label: lang === "bn" ? "আমাদের সম্পর্কে" : "About" },
     { href: "/career", label: lang === "bn" ? "ক্যারিয়ার" : "Career" },
     { href: "/contact", label: lang === "bn" ? "যোগাযোগ" : "Contact" },
-    { href: "/login", label: lang === "bn" ? "লগইন" : "Login" },
-    { href: "/signup", label: lang === "bn" ? "সাইন আপ" : "Sign Up" },
+    { href: "https://neon-code-top-up.vercel.app/login", label: lang === "bn" ? "লগইন" : "Login" },
+    { href: "https://neon-code-top-up.vercel.app/register", label: lang === "bn" ? "সাইন আপ" : "Sign Up" },
   ];
 
   useEffect(() => {

@@ -2,17 +2,49 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { registerUser } from "@/utils/localAuth";
 
 export default function Signup() {
   const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   if (!t) return null;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setError("");
+
+    if (!email.trim() || !password.trim()) {
+      setError("Please fill all required fields.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+
+    setLoading(true);
+    const result = registerUser({ email, password });
+    setLoading(false);
+
+    if (!result.ok) {
+      setError(result.message);
+      return;
+    }
+
+    router.push("/login?registered=1");
+  };
 
   return (
     <main className="min-h-screen w-full flex bg-black text-white pt-20">
@@ -61,26 +93,16 @@ export default function Signup() {
           </div>
 
           {/* ফর্ম */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             
-            {/* নাম */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-300 ml-1">
-                {t.auth.full_name} {/* পরিবর্তন করা হয়েছে */}
-              </label>
-              <input 
-                type="text" 
-                placeholder="John Doe"
-                className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-gray-600"
-              />
-            </div>
-
             {/* ইমেইল */}
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-300 ml-1">{t.auth.email}</label>
               <input 
                 type="email" 
                 placeholder="name@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-gray-600"
               />
             </div>
@@ -92,6 +114,8 @@ export default function Signup() {
                 <input 
                   type={showPassword ? "text" : "password"} 
                   placeholder="Create a password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-[#101010] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all placeholder:text-gray-600 pr-12"
                 />
                 <button 
@@ -109,8 +133,14 @@ export default function Signup() {
             </div>
 
             {/* বাটন */}
-            <button className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(147,51,234,0.5)] transition-all duration-300 transform hover:-translate-y-1 mt-4">
-              {t.auth.btn_signup}
+            {error && <p className="text-sm text-red-400">{error}</p>}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(147,51,234,0.5)] transition-all duration-300 transform hover:-translate-y-1 mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? "Creating..." : t.auth.btn_signup}
             </button>
 
           </form>
