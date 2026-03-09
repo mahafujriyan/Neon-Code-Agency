@@ -9,8 +9,8 @@
 //   "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100&auto=format&fit=crop",
 // ];
 // === রিভিউ কার্ড ===
-export const ReviewCard = ({ review, index }) => (
-  <div className="w-[350px] md:w-[450px] bg-[#151515] border border-white/10 p-8 rounded-2xl flex-shrink-0 mx-4 hover:border-blue-500/30 transition-colors duration-300 group">
+export const ReviewCard = ({ review }) => (
+  <div className="mx-2 w-[85vw] max-w-[450px] flex-shrink-0 rounded-2xl border border-white/10 bg-[#151515] p-5 transition-colors duration-300 hover:border-blue-500/30 group sm:mx-4 sm:p-8">
 
     <div className="flex gap-1 mb-4 text-yellow-500">
       {[...Array(5)].map((_, i) => (
@@ -20,8 +20,8 @@ export const ReviewCard = ({ review, index }) => (
       ))}
     </div>
 
-    <p className="text-gray-300 text-lg italic mb-6 leading-relaxed group-hover:text-white transition-colors">
-      "{review.comment}"
+    <p className="mb-6 text-base italic leading-relaxed text-gray-300 transition-colors group-hover:text-white sm:text-lg">
+      &ldquo;{review.comment}&rdquo;
     </p>
 
     <div className="flex items-center gap-4">

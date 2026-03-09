@@ -45,13 +45,13 @@ const Card = ({ i, title, desc, icon, img, hoverColor, progress, range, targetSc
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div ref={containerRef} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={containerRef} className="flex h-auto items-center justify-center py-10 lg:sticky lg:top-0 lg:h-screen">
       <motion.div
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }}
-        className="relative flex flex-col w-[350px] md:w-[450px] h-[420px] origin-top group cursor-pointer"
+        className="group relative flex h-[390px] w-full max-w-[460px] flex-col px-3 sm:h-[420px] sm:px-0"
       >
-        <div className="absolute -top-6 -left-6 z-50 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 border-4 border-black">
-          <div className="relative w-12 h-12">
+        <div className="absolute -left-2 -top-4 z-50 flex h-16 w-16 items-center justify-center rounded-full border-4 border-black bg-white shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 sm:-left-6 sm:-top-6 sm:h-20 sm:w-20">
+          <div className="relative h-10 w-10 sm:h-12 sm:w-12">
             <Image src={icon} alt="Icon" fill className="object-contain" />
           </div>
         </div>
@@ -67,9 +67,9 @@ const Card = ({ i, title, desc, icon, img, hoverColor, progress, range, targetSc
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-50"></div>
           <div className={`absolute inset-0 bg-gradient-to-t ${hoverColor} to-transparent z-20 opacity-0 group-hover:opacity-90 transition-opacity duration-300`}></div>
-          <div className="absolute bottom-0 left-0 w-full p-8 z-30 transform transition-transform duration-300 group-hover:-translate-y-2">
-            <span className="block text-4xl font-bold text-gray-500/50 mb-2 group-hover:text-black/50 transition-colors">0{i + 1}</span>
-            <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-black transition-colors leading-tight">{title}</h3>
+          <div className="absolute bottom-0 left-0 z-30 w-full p-5 transition-transform duration-300 group-hover:-translate-y-2 sm:p-8">
+            <span className="mb-2 block text-3xl font-bold text-gray-500/50 transition-colors group-hover:text-black/50 sm:text-4xl">0{i + 1}</span>
+            <h3 className="mb-2 text-xl font-bold leading-tight text-white transition-colors group-hover:text-black sm:text-2xl">{title}</h3>
             <p className="text-gray-300 text-sm line-clamp-3 group-hover:text-black/90 transition-colors font-medium">{desc}</p>
           </div>
         </div>
@@ -160,7 +160,7 @@ const servicesData = [
   return (
     <section className="bg-black text-white">
 
-      <div className="pt-24 pb-10 text-center container mx-auto px-6">
+      <div className="container mx-auto px-6 pb-10 pt-20 text-center sm:pt-24">
         <span className="text-blue-500 font-bold tracking-widest uppercase text-sm">{t.services.tag}</span>
         <motion.h2
           animate={{ x: 50 }}
@@ -219,7 +219,7 @@ const servicesData = [
         </div>
 
         {/* === ডান পাশ: Cards Scroll Area === */}
-        <div className="w-full lg:w-1/2 px-4 md:px-0 pb-20">
+        <div className="w-full px-2 pb-20 sm:px-4 md:px-0 lg:w-1/2">
           {servicesData.map((service, i) => {
             const targetScale = 1 - (servicesData.length - i) * 0.05;
             const rangeStart = i * (1 / servicesData.length);

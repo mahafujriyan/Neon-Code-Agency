@@ -4,15 +4,12 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 export default function Team() {
   const { t } = useLanguage();
   const [showAll, setShowAll] = useState(false);
   const sectionRef = useRef(null); // সেকশন রেফারেন্স
-
-  if (!t) return null;
 
   // বাটন ক্লিক হ্যান্ডলার
   const handleShowAll = () => {
@@ -46,6 +43,8 @@ export default function Team() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [showAll]);
+
+  if (!t) return null;
 
   // টিম মেম্বার ডাটা
 const teamData = [
@@ -154,7 +153,7 @@ const MemberCard = ({ member }) => (
             initial={{ opacity: 0, x: 20 }} 
             whileInView={{ opacity: 1, x: 0 }} 
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full md:w-auto flex justify-center md:justify-end"
+            className="flex w-full justify-center md:w-auto md:justify-end"
           >
             <button 
               onClick={handleShowAll} 
@@ -178,7 +177,7 @@ const MemberCard = ({ member }) => (
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
-          className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="container mx-auto grid grid-cols-1 gap-6 px-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {teamData.map((member) => (
             <MemberCard key={member.id} member={member} />
@@ -186,16 +185,16 @@ const MemberCard = ({ member }) => (
         </motion.div>
       ) : (
         // Slider View
-        <div className="w-full overflow-hidden border-y border-white/5 py-10 bg-white/5 backdrop-blur-sm relative">
+        <div className="relative w-full overflow-hidden border-y border-white/5 bg-white/5 py-8 backdrop-blur-sm sm:py-10">
           <div className="team-marquee">
             {infiniteTeam.map((member, index) => (
-              <div key={`${member.id}-${index}`} className="px-4 w-[332px]">
+              <div key={`${member.id}-${index}`} className="w-[78vw] max-w-[332px] px-2 sm:w-[332px] sm:px-4">
                 <MemberCard member={member} />
               </div>
             ))}
           </div>
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#080808] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#080808] to-transparent z-10 pointer-events-none"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#080808] to-transparent sm:w-20"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#080808] to-transparent sm:w-20"></div>
         </div>
       )}
 
