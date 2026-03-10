@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { GoogleTagManager } from "@next/third-parties/google";
+import GTMPageView from "@/components/GTMPageView";
 
 // ১. দুটো লোডার ইম্পোর্ট করুন
 import React from "react";
@@ -35,7 +37,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${hindSiliguri.variable} flex flex-col min-h-screen text-white bg-black`}>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-NLB229SN"} />
         <LanguageProvider>
+          <GTMPageView />
           
           {/* === ২. দুটো লোডার পাশাপাশি বসিয়ে দিন === */}
           

@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 import { LanguageProvider } from "@/context/LanguageContext";
+import { GoogleTagManager } from "@next/third-parties/google";
+import GTMPageView from "@/components/GTMPageView";
 import React from "react";
 import Preloader from "../components/Preloader";   // প্রথমবার লোড হওয়ার জন্য
 import DynamicPageLoader from "@/components/DynamicPageLoader";
@@ -42,7 +44,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} ${hindSiliguri.variable} flex flex-col min-h-screen text-white bg-black`}
       >
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-NLB229SN"} />
         <LanguageProvider>
+          <GTMPageView />
           <Preloader /> {/* রিফ্রেশ দিলে কাজ করবে (৩.৫ সেকেন্ড) */}
           <DynamicPageLoader />
           <Navbar />
