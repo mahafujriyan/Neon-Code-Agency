@@ -21,7 +21,13 @@ export default function Login() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    setRegistered(params.get("registered") === "1");
+    const isRegistered = params.get("registered") === "1";
+    setRegistered(isRegistered);
+
+    if (isRegistered) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "complete_registration" });
+    }
   }, []);
 
   if (!t) return null;
