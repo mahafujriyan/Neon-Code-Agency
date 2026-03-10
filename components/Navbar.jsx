@@ -323,7 +323,7 @@ const Navbar = () => {
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -inset-[2px] rounded-[30px] bg-gradient-to-r from-emerald-400/30 via-emerald-300/10 to-emerald-400/30 blur-[12px]"
               />
-              <div className="relative overflow-hidden rounded-[28px] border border-emerald-400/20 bg-black/92 shadow-[0_-18px_70px_rgba(0,0,0,0.82)] backdrop-blur-2xl">
+              <div className="relative rounded-[28px] border border-emerald-400/20 bg-black/92 shadow-[0_-18px_70px_rgba(0,0,0,0.82)] backdrop-blur-2xl">
                 <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_55%)]" />
                 <motion.div
                   aria-hidden="true"
@@ -333,7 +333,7 @@ const Navbar = () => {
                 />
                 <div aria-hidden="true" className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/45 to-transparent" />
 
-                <div className="relative grid grid-cols-5 items-end gap-0 px-1.5 pt-3 pb-[max(0.35rem,env(safe-area-inset-bottom))]">
+                <div className="relative z-10 grid grid-cols-5 items-end gap-0 px-1.5 pt-3 pb-[max(0.35rem,env(safe-area-inset-bottom))]">
                   <MobileIconItem
                     href="/portfolio"
                     label={text.projectsMobile}
@@ -368,7 +368,7 @@ const Navbar = () => {
                     }
                   />
 
-                  <div ref={exploreMobileRef} className="relative">
+                  <div ref={exploreMobileRef} className="relative z-20">
                     <MobileIconItem
                       label={text.more}
                       onClick={() => setExploreOpen((value) => !value)}
@@ -387,7 +387,7 @@ const Navbar = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.98 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute right-0 bottom-full z-50 mb-3 w-[min(20rem,calc(100vw-1rem))] overflow-hidden rounded-3xl border border-emerald-400/15 bg-black/94 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.75)] backdrop-blur-2xl"
+                          className="absolute right-0 bottom-full z-[70] mb-3 w-[min(20rem,calc(100vw-1rem))] overflow-hidden rounded-3xl border border-emerald-400/15 bg-black/94 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.75)] backdrop-blur-2xl"
                         >
                           <div className="grid grid-cols-2 gap-2">
                             {exploreLinks
@@ -436,7 +436,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Magnetic className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[58%]">
+            <Magnetic className="pointer-events-none absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-[58%]">
               <motion.div
                 aria-hidden="true"
                 animate={{ opacity: [0.28, 0.62, 0.28], scale: [1, 1.08, 1] }}
@@ -449,11 +449,10 @@ const Navbar = () => {
                 className="pointer-events-auto relative grid h-[3.6rem] w-[3.6rem] place-items-center rounded-[1.35rem] border border-emerald-300/40 bg-[linear-gradient(180deg,#7c3aed,#6d28d9)] shadow-[0_18px_44px_rgba(16,185,129,0.34)] ring-4 ring-emerald-300/20 transition-transform active:scale-95"
                 aria-label="Home"
               >
-                <div className="absolute inset-[1px] rounded-[1.2rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.24),transparent_55%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(0,0,0,0.1))]" />
-                <svg className="relative h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 10.5l3.2 2.4a3 3 0 003.6 0L17 10.5" />
-                  <rect x="4" y="6" width="16" height="12" rx="6" />
-                </svg>
+                <div className="absolute inset-[1px] rounded-[1.2rem] " />
+                <div className="relative h-8 w-8 overflow-hidden rounded-xl">
+                  <Image src="/navbaricon/navicon.jpg" alt="Neon Code" fill sizes="32px" className="object-cover" />
+                </div>
               </Link>
             </Magnetic>
           </div>
