@@ -43,9 +43,11 @@ const makeEntry = (
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return [
+  const urls: MetadataRoute.Sitemap = [
     ...staticPaths.map((path) => makeEntry(`${siteUrl}${path}`, "weekly", path === "/" ? 1 : 0.7, now)),
     ...serviceSlugs.map((slug) => makeEntry(`${siteUrl}/services/${slug}`, "monthly", 0.6, now)),
     ...portfolioProjects.map((project) => makeEntry(`${siteUrl}/portfolio/${project.slug}`, "monthly", 0.6, now)),
   ];
+
+  return urls;
 }
