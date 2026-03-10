@@ -5,7 +5,7 @@
   --font-bn: var(--font-hind);
 }
 
-/* ফন্ট ক্লাস */
+
 .font-en {
   font-family: var(--font-poppins), sans-serif;
 }
@@ -14,7 +14,7 @@
   font-family: var(--font-hind), sans-serif;
 }
 
-/* ডিফল্ট বডি স্টাইল */
+
 body {
   font-family: var(--font-poppins), sans-serif;
   background-color: black;
