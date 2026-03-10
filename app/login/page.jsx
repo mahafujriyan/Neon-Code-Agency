@@ -22,6 +22,7 @@ export default function Login() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const isRegistered = params.get("registered") === "1";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setRegistered(isRegistered);
 
     if (isRegistered) {

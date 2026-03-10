@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
         </Script>
         <LanguageProvider>
           <GTMPageView />
-          <Preloader /> {/* রিফ্রেশ দিলে কাজ করবে (৩.৫ সেকেন্ড) */}
+          <Preloader /> 
           <DynamicPageLoader />
           <Navbar />
           <main className="flex-grow">{children}</main>

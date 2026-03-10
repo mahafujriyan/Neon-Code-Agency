@@ -1,6 +1,5 @@
-// app/contact/page.jsx
-"use client";
 
+"use client";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -12,7 +11,7 @@ export default function ContactPage() {
 
   if (!t) return null;
 
-  // ================= EMAIL SEND FUNCTION =================
+  // ======== EMAIL SEND FUNCTION =====
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -34,7 +33,7 @@ export default function ContactPage() {
         }
       );
   };
-  // ======================================================
+ 
 
   return (
     <main className="bg-black text-white min-h-screen pt-24 pb-20">
@@ -60,7 +59,7 @@ export default function ContactPage() {
         {/* === ২. মেইন কন্টেন্ট === */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          {/* --- বাম পাশ: ইনফরমেশন কার্ডস --- */}
+         
           <div className="space-y-8">
             <ContactCard
               icon={<MapIcon />}
@@ -135,7 +134,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Subject */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-400 ml-1">
                   {t.contact.form.subject}
