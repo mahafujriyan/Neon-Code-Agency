@@ -2,11 +2,11 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { loginUser } from "@/utils/localAuth";
 
 export default function Login() {
@@ -16,12 +16,15 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [registered, setRegistered] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setRegistered(params.get("registered") === "1");
+  }, []);
 
   if (!t) return null;
-
-  const registered = searchParams.get("registered") === "1";
 
   const handleSubmit = (event) => {
     event.preventDefault();
